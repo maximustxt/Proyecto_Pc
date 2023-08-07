@@ -1,0 +1,84 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-carrusel-de-marcas-sponsors',
+  templateUrl: './carrusel-de-marcas-sponsors.component.html',
+  styleUrls: ['./carrusel-de-marcas-sponsors.component.scss'],
+})
+export class CarruselDeMarcasSponsorsComponent {
+  imgCollection: Array<{ image: string; thumbImage: string }> = [
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_365_9_441.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_365_9_441.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_331_9_273.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_331_9_273.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_359_9_526.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_359_9_526.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_320_9_411.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_320_9_411.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_364_9_203.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_364_9_203.jpg',
+    },
+    ///////////////////////////////////////////////////////////////////////////
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_366_9_965.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_366_9_965.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_303_9_754.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_303_9_754.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_308_9_866.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_308_9_866.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_322_9_619.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_322_9_619.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_343_9_603.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_343_9_603.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_367_9_389.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_367_9_389.jpg',
+    },
+    {
+      image:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_369_9_879.jpg',
+      thumbImage:
+        'https://compragamer.net/imagenes_marcas/imagen_marca_369_9_879.jpg',
+    },
+  ];
+}

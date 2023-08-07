@@ -1,0 +1,62 @@
+<!--------Nav Bar---------->
+<app-nav-bar></app-nav-bar>
+<div class="Container">
+  <img
+    src="https://imagenes.compragamer.com/bannerSubcategoria/DC_20221104111036_EsPpZycd.jpg"
+  />
+  <p>SILLAS Y BUTACAS</p>
+</div>
+<!--------------------------Filtros--------------------------->
+<div class="SelectFiltro">
+  <select (change)="FiltroMarca($event)">
+    <option hidden>Seleccionar Marca</option>
+    <option *ngFor="let Marca of ArrayMarcasSillas_Butacas" [value]="Marca">
+      {{ Marca | pipeNombreFiltros }}
+    </option>
+    <option value="All">Todas Las Marcas</option>
+  </select>
+  <!----------------------------ORDENAMIENTOS------------------------------->
+  <select (change)="FuncionOrdenamientoPrecio_Destacado($event)">
+    <option hidden>Ordenamientos</option>
+    <option value="Mayor Precio">Mayor Precio</option>
+    <option value="Menor Precio">Menor Precio</option>
+    <option value="Destacado">Destacado</option>
+    <option value="All">Todo los Productos</option>
+  </select>
+  <!----------------------------------------------------------------------->
+</div>
+<!------------------------------------------------------------->
+<ng-container *ngIf="ArraySilla_Butaca.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngFor="let Silla of ArraySilla_Butaca">
+        <a [routerLink]="['../Detail', Silla._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img
+                [ngStyle]="{ opacity: calcularOpacidad(Silla.Stock) }"
+                [src]="Silla.Imagen"
+              />
+            </section>
+            <p class="SinStock" *ngIf="!Silla.Stock">
+              {{ "Sin Stock" | uppercase }}
+            </p>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ Silla.Precio | pipePrecio }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ Silla.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <!--------Armado De Pc-------->
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

@@ -1,0 +1,36 @@
+<!--------Nav Bar--------->
+<app-nav-bar></app-nav-bar>
+<img
+  src="https://lezamapc.com.ar/modules/ps_imageslider/images/8375854f0d5545bbc067bfea0e38fd28af7b1628_jbl.png"
+  width="100%"
+  style="margin-top: 100px"
+/>
+<ng-container *ngIf="ProductosJBL.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <!----------------Por cada Producto JBL--------------->
+      <ng-container *ngFor="let ProductoJBL of ProductosJBL">
+        <a [routerLink]="['../Detail', ProductoJBL._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img [src]="ProductoJBL.Imagen" />
+            </section>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ ProductoJBL.Precio | pipePrecio }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ ProductoJBL.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <!---------Armado De Pc--------->
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

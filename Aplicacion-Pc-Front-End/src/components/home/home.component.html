@@ -1,0 +1,61 @@
+<!---------Nav Bar---------->
+<app-nav-bar (EnvioDesdeNavSearch)="ObtenerDatoSearch($event)"></app-nav-bar>
+<!----------Carrusel------------->
+<app-carrusel-de-marcas></app-carrusel-de-marcas>
+<section class="SectionSearch">
+  <h3>RESULTADOS DE BUSQUEDAS</h3>
+  <!---------------------Si existe el array del Search------------------------>
+  <ng-container *ngIf="ArrayDataSearch.length">
+    <div class="ContainerMayorCards">
+      <div class="SectionCards">
+        <ng-container *ngFor="let data of ArrayDataSearch">
+          <a [routerLink]="['../Detail', data._id]">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img [src]="data.Imagen" />
+              </section>
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ data.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="data.name">
+                  <div class="ContainerNombre">
+                    <p>{{ data.name }}</p>
+                  </div>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </a>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+  <!-----------------------------Si no existe--------------------------------->
+  <ng-container *ngIf="!ArrayDataSearch.length">
+    <h5>NO HAY RESULTADOS DE BUSQUEDA!.</h5>
+  </ng-container>
+  <!-------------------------------------------------------------------------->
+</section>
+<div class="ContainerImagenes">
+  <a routerLink="/Perifericos">
+    <img
+      class="ImagenPerifericos"
+      src="https://www.venex.com.ar/fil/banners/perifericso.jpg"
+    />
+  </a>
+  <a routerLink="/PlacasDeVideo">
+    <img src="https://www.venex.com.ar/fil/banners/placasdevideo.jpg" />
+  </a>
+  <a routerLink="/Motherboard">
+    <img src="https://www.venex.com.ar/fil/banners/mothers.jpg" />
+  </a>
+</div>
+<div class="ContainerImagenesAorus">
+  <a routerLink="/NotebooksAero">
+    <img
+      class="ImagenNotebooksAero"
+      src="https://lezamapc.com.ar/img/cms/Banner/Aero-13Gen-1920x500.png"
+    />
+  </a>
+</div>
+<app-card></app-card>

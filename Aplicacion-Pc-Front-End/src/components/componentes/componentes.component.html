@@ -1,0 +1,94 @@
+<app-nav-bar></app-nav-bar>
+<div class="Container">
+  <img
+    src="https://imagenes.compragamer.com/bannerSubcategoria/subcategoria_default.jpg"
+  />
+  <p>COMPONENTES</p>
+</div>
+<!--------------------------Filtros --------------------------->
+<div class="SelectFiltro">
+  <!--Marcas-->
+  <select (change)="FiltroMarca($event)">
+    <option hidden>Seleccionar Marca</option>
+    <option *ngFor="let Marca of ArrayMarcasComponentes" [value]="Marca">
+      {{ Marca | pipeNombreFiltros }}
+    </option>
+    <option value="All">Todas Las Marcas</option>
+  </select>
+  <!--Tipos-->
+  <select (change)="FiltroTipo($event)">
+    <option hidden>Seleccionar Tipo</option>
+    <option *ngFor="let Tipo of ArrayTiposComponentes" [value]="Tipo">
+      {{ Tipo | pipeNombreFiltros }}
+    </option>
+    <option value="All">Todos Los Componentes</option>
+  </select>
+  <!--Factor Forma Gabinete-->
+  <select (change)="FiltroFactorForma($event)">
+    <option hidden>Seleccionar Formato</option>
+    <option
+      *ngFor="let Formato of ArrayFormatoGabineteComponentes"
+      [value]="Formato"
+    >
+      <ng-container *ngIf="Formato">
+        {{ Formato | pipeNombreFiltros }}
+      </ng-container>
+    </option>
+    <option value="All">Todos Los Componentes</option>
+  </select>
+  <!--Compatibilidad-->
+  <select (change)="FiltroCompatibilidad($event)">
+    <option hidden>Seleccionar Compatibilidad</option>
+    <option
+      *ngFor="let Compatibilidad of ArrayCompatibilidad"
+      [value]="Compatibilidad"
+    >
+      <ng-container *ngIf="Compatibilidad">
+        {{ Compatibilidad | pipeNombreFiltros }}
+      </ng-container>
+    </option>
+    <option value="All">Todos Los Componentes</option>
+  </select>
+  <!----------------------------ORDENAMIENTOS------------------------------->
+  <select (change)="FuncionOrdenamientoPrecio_Destacado($event)">
+    <option hidden>Ordenamientos</option>
+    <option value="Mayor Precio">Mayor Precio</option>
+    <option value="Menor Precio">Menor Precio</option>
+    <option value="Destacado">Destacado</option>
+    <option value="All">Todo los Productos</option>
+  </select>
+</div>
+<!-----------------------------Componentes-------------------------------->
+<ng-container *ngIf="ArrayComponentes.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngFor="let Componente of ArrayComponentes">
+        <a [routerLink]="['../Detail', Componente._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img
+                [ngStyle]="{ opacity: calcularOpacidad(Componente.Stock) }"
+                [src]="Componente.Imagen"
+              />
+            </section>
+            <p class="SinStock" *ngIf="!Componente.Stock">
+              {{ "Sin Stock" | uppercase }}
+            </p>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ Componente.Precio | pipePrecio }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ Componente.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

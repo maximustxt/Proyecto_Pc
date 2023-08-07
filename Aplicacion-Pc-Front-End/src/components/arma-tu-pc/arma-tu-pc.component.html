@@ -1,0 +1,1248 @@
+<app-nav-bar></app-nav-bar>
+<div class="ContainerBotonReiniciarPrecio">
+  <div class="Boton_Precio_Total">
+    <h5>TOTAL: {{ TotalPrecio | pipePrecio }}</h5>
+    <button (click)="BotonReiniciar()">Reiniciar Configurador</button>
+  </div>
+</div>
+<section class="SectionArmarPc">
+  <div class="ContenidoSeleccionDeComponentes">
+    <!-----Div 1----->
+    <div>
+      <!--Procesador-->
+      <ng-container *ngIf="!ImagenProcesador">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/cpu1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenProcesador">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenProcesador" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Procesador</p>
+        </div>
+      </ng-container>
+
+      <!--Placa madre-->
+      <ng-container *ngIf="!ImagenPlacaMadre">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/mother1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenPlacaMadre">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenPlacaMadre" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Placa Madre</p>
+        </div>
+      </ng-container>
+      <!--Memoria Ram-->
+      <ng-container *ngIf="!ImagenRam">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/memo1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenRam">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenRam" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Memoria Ram</p>
+        </div>
+      </ng-container>
+    </div>
+    <!-----Div 2------>
+    <div>
+      <!--Placa de Video-->
+      <ng-container *ngIf="!ImagenPlacaDeVideo">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/gpu1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenPlacaDeVideo">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenPlacaDeVideo" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Placa De Video</p>
+        </div>
+      </ng-container>
+      <!--Disco duro-->
+      <ng-container *ngIf="!ImagenDiscoDuro">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/hhd1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenDiscoDuro">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenDiscoDuro" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Disco Duro</p>
+        </div>
+      </ng-container>
+      <!--Fuente De Poder-->
+      <ng-container *ngIf="!ImagenFuenteDePoder">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/poder1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenFuenteDePoder">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenFuenteDePoder" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Fuente De Poder</p>
+        </div>
+      </ng-container>
+    </div>
+    <!------Div 3------->
+    <div>
+      <!--Gabinete-->
+      <ng-container *ngIf="!ImagenGabinete">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/gabo1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenGabinete">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenGabinete" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Gabinete</p>
+        </div>
+      </ng-container>
+      <!--Perifericos-->
+      <ng-container *ngIf="!ImagenPeriferico">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/periferico1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenPeriferico">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenPeriferico" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Periferico</p>
+        </div>
+      </ng-container>
+      <!--Monitores-->
+      <ng-container *ngIf="!ImagenMonitor">
+        <a>
+          <img
+            src="https://compragamer.com/PatchRouterSection/assets/img/arma-pc/moni1.png"
+          />
+        </a>
+      </ng-container>
+      <ng-container *ngIf="ImagenMonitor">
+        <div class="ContainerProductoSeleccionado">
+          <a class="ContenedroDeImagen">
+            <img [src]="ImagenMonitor" height="55" width="50" />
+            <span>✔</span>
+          </a>
+          <p>Monitor</p>
+        </div>
+      </ng-container>
+    </div>
+    <!--------------------------------------------------------------------------------------------->
+    <br />
+  </div>
+  <div class="ContainerArmaPc">
+    <ng-container *ngIf="BooleanoBotones && isAllArraysEmpty">
+      <button (click)="FuncionSeleccionIntel()" class="BotonIntel">
+        <img src="https://www.venex.com.ar/images/configurador_pc/intel.png" />
+      </button>
+      <button (click)="FuncionSeleccionAmd()" class="BotonAmd">
+        <img src="https://www.venex.com.ar/images/configurador_pc/amd.png" />
+      </button>
+    </ng-container>
+
+    <!-----------------------------------------------Procesadores Intel------------------------------------------------->
+
+    <ng-container *ngIf="ProcesadoresIntel.length && !BooleanoBotones">
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let ProcesadorIntel of ProcesadoresIntel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(ProcesadorIntel.Stock)
+                  }"
+                  [src]="ProcesadorIntel.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!ProcesadorIntel.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ ProcesadorIntel.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="ProcesadorIntel.name">
+                  <div class="ContainerNombre">
+                    <p>{{ ProcesadorIntel.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="ProcesadorIntel.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoProcesadorIntel(ProcesadorIntel.name)
+                    "
+                    [disabled]="!ProcesadorIntel.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!-- ------------------------------------------PLACA DE MADRE
+    INTEL----------------------------------------- -->
+    <ng-container
+      *ngIf="PlacasMadreIntel.length && ProcesadoresIntel.length === 0"
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let PlacaMadreIntel of PlacasMadreIntel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(PlacaMadreIntel.Stock)
+                  }"
+                  [src]="PlacaMadreIntel.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!PlacaMadreIntel.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ PlacaMadreIntel.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="PlacaMadreIntel.name">
+                  <div class="ContainerNombre">
+                    <p>{{ PlacaMadreIntel.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="PlacaMadreIntel.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoPlacaMadreIntel(PlacaMadreIntel._id)
+                    "
+                    [disabled]="!PlacaMadreIntel.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------MEMORIAS RAM------------------------------------------->
+    <ng-container
+      *ngIf="
+        Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let MemoriasRam of Memorias_RamIntel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{ opacity: calcularOpacidad(MemoriasRam.Stock) }"
+                  [src]="MemoriasRam.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!MemoriasRam.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ MemoriasRam.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="MemoriasRam.name">
+                  <div class="ContainerNombre">
+                    <p>{{ MemoriasRam.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="MemoriasRam.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoMemoriasRamIntel(MemoriasRam._id)
+                    "
+                    [disabled]="!MemoriasRam.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------PLACAS DE VIDEO------------------------------------------->
+    <ng-container
+      *ngIf="
+        Placas_De_VideoIntel.length &&
+        !Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container
+            *ngFor="let Placa_De_Video_Intel of Placas_De_VideoIntel"
+          >
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(Placa_De_Video_Intel.Stock)
+                  }"
+                  [src]="Placa_De_Video_Intel.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!Placa_De_Video_Intel.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ Placa_De_Video_Intel.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="Placa_De_Video_Intel.name">
+                  <div class="ContainerNombre">
+                    <p>{{ Placa_De_Video_Intel.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="
+                      Placa_De_Video_Intel.Stock ? 'BTN' : 'BTN_SIN_STOCK'
+                    "
+                    (click)="
+                      FuncionAgregarCarritoPlacaDeVideoIntel(
+                        Placa_De_Video_Intel._id
+                      )
+                    "
+                    [disabled]="!Placa_De_Video_Intel.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------DISCOS DUROS------------------------------------------->
+    <ng-container
+      *ngIf="
+        Discos_Rigidos_Intel.length &&
+        !Placas_De_VideoIntel.length &&
+        !Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let Disco_Duro_Intel of Discos_Rigidos_Intel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(Disco_Duro_Intel.Stock)
+                  }"
+                  [src]="Disco_Duro_Intel.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!Disco_Duro_Intel.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ Disco_Duro_Intel.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="Disco_Duro_Intel.name">
+                  <div class="ContainerNombre">
+                    <p>{{ Disco_Duro_Intel.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="Disco_Duro_Intel.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoDiscoDuroIntel(Disco_Duro_Intel._id)
+                    "
+                    [disabled]="!Disco_Duro_Intel.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------FUENTES DE PODER------------------------------------------->
+    <ng-container
+      *ngIf="
+        FuentesDePoderIntel.length &&
+        !Discos_Rigidos_Intel.length &&
+        !Placas_De_VideoIntel.length &&
+        !Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let Fuentes_De_Poder of FuentesDePoderIntel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(Fuentes_De_Poder.Stock)
+                  }"
+                  [src]="Fuentes_De_Poder.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!Fuentes_De_Poder.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ Fuentes_De_Poder.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="Fuentes_De_Poder.name">
+                  <div class="ContainerNombre">
+                    <p>{{ Fuentes_De_Poder.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="Fuentes_De_Poder.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoFuenteDePoderIntel(
+                        Fuentes_De_Poder._id
+                      )
+                    "
+                    [disabled]="!Fuentes_De_Poder.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------GABINETE------------------------------------------->
+    <ng-container
+      *ngIf="
+        GabinetesIntel.length &&
+        !FuentesDePoderIntel.length &&
+        !Discos_Rigidos_Intel.length &&
+        !Placas_De_VideoIntel.length &&
+        !Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let Gabinetes_Intel of GabinetesIntel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(Gabinetes_Intel.Stock)
+                  }"
+                  [src]="Gabinetes_Intel.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!Gabinetes_Intel.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ Gabinetes_Intel.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="Gabinetes_Intel.name">
+                  <div class="ContainerNombre">
+                    <p>{{ Gabinetes_Intel.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="Gabinetes_Intel.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoGabineteIntel(Gabinetes_Intel._id)
+                    "
+                    [disabled]="!Gabinetes_Intel.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------PERIFERICOS------------------------------------------->
+    <ng-container
+      *ngIf="
+        PerifericosIntel.length &&
+        !GabinetesIntel.length &&
+        !FuentesDePoderIntel.length &&
+        !Discos_Rigidos_Intel.length &&
+        !Placas_De_VideoIntel.length &&
+        !Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let PerifericoIntel of PerifericosIntel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(PerifericoIntel.Stock)
+                  }"
+                  [src]="PerifericoIntel.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!PerifericoIntel.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ PerifericoIntel.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="PerifericoIntel.name">
+                  <div class="ContainerNombre">
+                    <p>{{ PerifericoIntel.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="PerifericoIntel.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoPerifericosIntel(PerifericoIntel._id)
+                    "
+                    [disabled]="!PerifericoIntel.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------MONITORES------------------------------------------->
+    <ng-container
+      *ngIf="
+        MonitoresIntel.length &&
+        !PerifericosIntel.length &&
+        !GabinetesIntel.length &&
+        !FuentesDePoderIntel.length &&
+        !Discos_Rigidos_Intel.length &&
+        !Placas_De_VideoIntel.length &&
+        !Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let MonitorIntel of MonitoresIntel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{ opacity: calcularOpacidad(MonitorIntel.Stock) }"
+                  [src]="MonitorIntel.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!MonitorIntel.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ MonitorIntel.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="MonitorIntel.name">
+                  <div class="ContainerNombre">
+                    <p>{{ MonitorIntel.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="MonitorIntel.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoMonitorIntel(MonitorIntel._id)
+                    "
+                    [disabled]="!MonitorIntel.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------ARMADO DE PC------------------------------------------->
+    <ng-container
+      *ngIf="
+        ArmadoPcIntel.length &&
+        !MonitoresIntel.length &&
+        !PerifericosIntel.length &&
+        !GabinetesIntel.length &&
+        !FuentesDePoderIntel.length &&
+        !Discos_Rigidos_Intel.length &&
+        !Placas_De_VideoIntel.length &&
+        !Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let ArmadoPcIntel of ArmadoPcIntel">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img [src]="ArmadoPcIntel.Imagen" />
+              </section>
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ ArmadoPcIntel.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="ArmadoPcIntel.name">
+                  <div class="ContainerNombreArmadoPc">
+                    <p>{{ ArmadoPcIntel.name }}</p>
+                  </div>
+                  <button
+                    class="BTN"
+                    (click)="FuncionAgregarArmadoPcIntel(ArmadoPcIntel._id)"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--------------------------------------------Procesadores AMD------------------------------------------->
+    <ng-container *ngIf="ProcesadoresAmd.length">
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let ProcesadoreAmd of ProcesadoresAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(ProcesadoreAmd.Stock)
+                  }"
+                  [src]="ProcesadoreAmd.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!ProcesadoreAmd.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ ProcesadoreAmd.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="ProcesadoreAmd.name">
+                  <div class="ContainerNombre">
+                    <p>{{ ProcesadoreAmd.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="ProcesadoreAmd.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoProcesadorAmd(ProcesadoreAmd._id)
+                    "
+                    [disabled]="!ProcesadoreAmd.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------PLACA DE MADRE AMD------------------------------------------->
+    <ng-container *ngIf="PlacasMadreAmd.length && !ProcesadoresAmd.length">
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let PlacaMadreAmd of PlacasMadreAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{ opacity: calcularOpacidad(PlacaMadreAmd.Stock) }"
+                  [src]="PlacaMadreAmd.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!PlacaMadreAmd.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ PlacaMadreAmd.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="PlacaMadreAmd.name">
+                  <div class="ContainerNombre">
+                    <p>{{ PlacaMadreAmd.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="PlacaMadreAmd.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoPlacaMadreAmd(PlacaMadreAmd._id)
+                    "
+                    [disabled]="!PlacaMadreAmd.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------MEMORIAS RAM------------------------------------------->
+    <ng-container
+      *ngIf="
+        Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let MemoriasRam of Memorias_RamAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{ opacity: calcularOpacidad(MemoriasRam.Stock) }"
+                  [src]="MemoriasRam.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!MemoriasRam.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ MemoriasRam.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="MemoriasRam.name">
+                  <div class="ContainerNombre">
+                    <p>{{ MemoriasRam.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="MemoriasRam.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoMemoriasRamAmd(MemoriasRam._id)
+                    "
+                    [disabled]="!MemoriasRam.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------PLACAS DE VIDEO------------------------------------------->
+    <ng-container
+      *ngIf="
+        Placas_De_VideoAmd.length &&
+        !Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let Placa_De_Video_Amd of Placas_De_VideoAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(Placa_De_Video_Amd.Stock)
+                  }"
+                  [src]="Placa_De_Video_Amd.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!Placa_De_Video_Amd.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ Placa_De_Video_Amd.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="Placa_De_Video_Amd.name">
+                  <div class="ContainerNombre">
+                    <p>{{ Placa_De_Video_Amd.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="
+                      Placa_De_Video_Amd.Stock ? 'BTN' : 'BTN_SIN_STOCK'
+                    "
+                    (click)="
+                      FuncionAgregarCarritoPlacaDeVideoAmd(
+                        Placa_De_Video_Amd._id
+                      )
+                    "
+                    [disabled]="!Placa_De_Video_Amd.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------DISCOS DUROS------------------------------------------->
+    <ng-container
+      *ngIf="
+        Discos_Rigidos_Amd.length &&
+        !Placas_De_VideoAmd.length &&
+        !Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let Disco_Duro_Amd of Discos_Rigidos_Amd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(Disco_Duro_Amd.Stock)
+                  }"
+                  [src]="Disco_Duro_Amd.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!Disco_Duro_Amd.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ Disco_Duro_Amd.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="Disco_Duro_Amd.name">
+                  <div class="ContainerNombre">
+                    <p>{{ Disco_Duro_Amd.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="Disco_Duro_Amd.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoDiscoDuroAmd(Disco_Duro_Amd._id)
+                    "
+                    [disabled]="!Disco_Duro_Amd.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------FUENTE DE PODER------------------------------------------->
+    <ng-container
+      *ngIf="
+        FuentesDePoderAmd.length &&
+        !Discos_Rigidos_Amd.length &&
+        !Placas_De_VideoAmd.length &&
+        !Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let Fuentes_De_Poder of FuentesDePoderAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{
+                    opacity: calcularOpacidad(Fuentes_De_Poder.Stock)
+                  }"
+                  [src]="Fuentes_De_Poder.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!Fuentes_De_Poder.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ Fuentes_De_Poder.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="Fuentes_De_Poder.name">
+                  <div class="ContainerNombre">
+                    <p>{{ Fuentes_De_Poder.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="Fuentes_De_Poder.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoFuenteDePoderAmd(
+                        Fuentes_De_Poder._id
+                      )
+                    "
+                    [disabled]="!Fuentes_De_Poder.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------GABINETE------------------------------------------->
+    <ng-container
+      *ngIf="
+        GabinetesAmd.length &&
+        !FuentesDePoderAmd.length &&
+        !Discos_Rigidos_Amd.length &&
+        !Placas_De_VideoAmd.length &&
+        !Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let Gabinete_Amd of GabinetesAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{ opacity: calcularOpacidad(Gabinete_Amd.Stock) }"
+                  [src]="Gabinete_Amd.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!Gabinete_Amd.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ Gabinete_Amd.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="Gabinete_Amd.name">
+                  <div class="ContainerNombre">
+                    <p>{{ Gabinete_Amd.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="Gabinete_Amd.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="FuncionAgregarCarritoGabineteAmd(Gabinete_Amd._id)"
+                    [disabled]="!Gabinete_Amd.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------PERIFERICOS------------------------------------------->
+    <ng-container
+      *ngIf="
+        PerifericosAmd.length &&
+        !GabinetesAmd.length &&
+        !FuentesDePoderAmd.length &&
+        !Discos_Rigidos_Amd.length &&
+        !Placas_De_VideoAmd.length &&
+        !Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let PerifericoAmd of PerifericosAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{ opacity: calcularOpacidad(PerifericoAmd.Stock) }"
+                  [src]="PerifericoAmd.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!PerifericoAmd.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ PerifericoAmd.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="PerifericoAmd.name">
+                  <div class="ContainerNombre">
+                    <p>{{ PerifericoAmd.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="PerifericoAmd.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="
+                      FuncionAgregarCarritoPerifericoAmd(PerifericoAmd._id)
+                    "
+                    [disabled]="!PerifericoAmd.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------MONITORES------------------------------------------->
+    <ng-container
+      *ngIf="
+        MonitoresAmd.length &&
+        !PerifericosAmd.length &&
+        !GabinetesAmd.length &&
+        !FuentesDePoderAmd.length &&
+        !Discos_Rigidos_Amd.length &&
+        !Placas_De_VideoAmd.length &&
+        !Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let MonitorAmd of MonitoresAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img
+                  [ngStyle]="{ opacity: calcularOpacidad(MonitorAmd.Stock) }"
+                  [src]="MonitorAmd.Imagen"
+                />
+              </section>
+              <!-------Sin Stock-------->
+              <p class="SinStock" *ngIf="!MonitorAmd.Stock">
+                {{ "Sin Stock" | uppercase }}
+              </p>
+              <!----------------------->
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ MonitorAmd.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="MonitorAmd.name">
+                  <div class="ContainerNombre">
+                    <p>{{ MonitorAmd.name }}</p>
+                  </div>
+                  <button
+                    [ngClass]="MonitorAmd.Stock ? 'BTN' : 'BTN_SIN_STOCK'"
+                    (click)="FuncionAgregarCarritoMonitorAmd(MonitorAmd._id)"
+                    [disabled]="!MonitorAmd.Stock"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <!--------------------------------------------ARMADO DE PC------------------------------------------->
+    <ng-container
+      *ngIf="
+        ArmadoPcAmd.length &&
+        !MonitoresAmd.length &&
+        !PerifericosAmd.length &&
+        !GabinetesAmd.length &&
+        !FuentesDePoderAmd.length &&
+        !Discos_Rigidos_Amd.length &&
+        !Placas_De_VideoAmd.length &&
+        !Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length
+      "
+    >
+      <div class="ContainerMayorCards">
+        <div class="SectionCards">
+          <ng-container *ngFor="let ArmadoPcAmd of ArmadoPcAmd">
+            <div class="ContainerCardPc">
+              <section class="ContainerImg">
+                <img [src]="ArmadoPcAmd.Imagen" />
+              </section>
+              <div class="ContainerInformacionPrecioName">
+                <h3>{{ ArmadoPcAmd.Precio | pipePrecio }}</h3>
+                <!-----------------name------------------>
+                <ng-container *ngIf="ArmadoPcAmd.name">
+                  <div class="ContainerNombreArmadoPc">
+                    <p style="text-align: center">{{ ArmadoPcAmd.name }}</p>
+                  </div>
+                  <button
+                    class="BTN"
+                    (click)="FuncionAgregarArmadoPcAmd(ArmadoPcAmd._id)"
+                  >
+                    Agregar +
+                  </button>
+                </ng-container>
+                <!-------------------------------------->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-------------------------------------------------------------------------------BOTON AGREGAR CARRITO------------------------------------------------------------------------------------------------------------------------>
+
+    <ng-container
+      *ngIf="
+        !ArmadoPcAmd.length &&
+        !MonitoresAmd.length &&
+        !PerifericosAmd.length &&
+        !GabinetesAmd.length &&
+        !FuentesDePoderAmd.length &&
+        !Discos_Rigidos_Amd.length &&
+        !Placas_De_VideoAmd.length &&
+        !Memorias_RamAmd.length &&
+        !PlacasMadreAmd.length &&
+        !ProcesadoresAmd.length &&
+        !ArmadoPcIntel.length &&
+        !MonitoresIntel.length &&
+        !PerifericosIntel.length &&
+        !GabinetesIntel.length &&
+        !FuentesDePoderIntel.length &&
+        !Discos_Rigidos_Intel.length &&
+        !Placas_De_VideoIntel.length &&
+        !Memorias_RamIntel.length &&
+        !PlacasMadreIntel.length &&
+        !ProcesadoresIntel.length
+      "
+    >
+      <button class="botonCarrito" (click)="BotonAgregarTodoCarrito()">
+        Ir Al Carrito
+      </button>
+    </ng-container>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-------------------------------------------------------------------------------------------------------------------------------->
+  </div>
+</section>
+<app-footer></app-footer>

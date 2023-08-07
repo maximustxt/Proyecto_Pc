@@ -1,0 +1,74 @@
+<app-nav-bar></app-nav-bar>
+<div class="Container">
+  <img
+    src="https://imagenes.compragamer.com/bannerSubcategoria/DC_20221104111402_9KiYf96L.jpg"
+  />
+  <p>PANTALLAS Y MONITORES</p>
+</div>
+<!--------------------------Filtros --------------------------->
+<div class="SelectFiltro">
+  <!--Marcas-->
+  <select (change)="FiltroMarcaMonitores($event)">
+    <option hidden>Seleccionar Marca</option>
+    <option *ngFor="let Marca of ArrayMarcasMonitores" [value]="Marca">
+      {{ Marca | pipeNombreFiltros }}
+    </option>
+    <option value="All">Todas Las Marcas</option>
+  </select>
+  <!--Panel-->
+  <select (change)="FiltroPanelMonitores($event)">
+    <option hidden>Tipo Panel</option>
+    <option *ngFor="let Panel of ArrayPanelMonitores" [value]="Panel">
+      <ng-container *ngIf="Panel">
+        {{ Panel | pipeNombreFiltros }}
+      </ng-container>
+    </option>
+    <option value="All">Todos Los Monitores</option>
+  </select>
+  <!----------------------------ORDENAMIENTOS------------------------------->
+  <select (change)="FuncionOrdenamientoPrecio_Destacado($event)">
+    <option hidden>Ordenamientos</option>
+    <option value="Mayor Precio">Mayor Precio</option>
+    <option value="Menor Precio">Menor Precio</option>
+    <option value="Destacado">Destacado</option>
+    <option value="All">Todo los Productos</option>
+  </select>
+  <!----------------------------------------------------------------------->
+</div>
+<!------------------------------------------------------------->
+<ng-container *ngIf="Monitores.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngFor="let Monitor of Monitores">
+        <a [routerLink]="['../Detail', Monitor._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img
+                [ngStyle]="{ opacity: calcularOpacidad(Monitor.Stock) }"
+                [src]="Monitor.Imagen"
+              />
+            </section>
+            <!---------Sin Stock--------->
+            <p class="SinStock" *ngIf="!Monitor.Stock">
+              {{ "Sin Stock" | uppercase }}
+            </p>
+            <!-------------------------->
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ Monitor.Precio | pipePrecio }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ Monitor.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <!------------Armado De Pc------------->
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

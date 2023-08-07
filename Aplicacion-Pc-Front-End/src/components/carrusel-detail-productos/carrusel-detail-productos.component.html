@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="carousel">
+    <div
+      class="slide"
+      [ngStyle]="{
+        transform: 'translateX(-' + activeIndex * (100 * displaySize) + 'px)'
+      }"
+    >
+      <!--------------Cada Producto Del Carrusel----------------->
+      <div
+        class="product"
+        *ngFor="let product of ArrayNootebock.concat(ArrayNootebock)"
+      >
+        <a (click)="FuncionRederijirDetail(product._id)">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img [src]="product.Imagen" />
+            </section>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ FuncionIconoPrecio(product.Precio) }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ product.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <!------------------------Boton anterior-------------------------->
+    <button (click)="previousProduct()">Anterior</button>
+    <!------------------------Boton siguiente------------------------->
+    <button (click)="nextProduct()">Siguiente</button>
+  </div>
+</div>

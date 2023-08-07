@@ -1,0 +1,11 @@
+.ImagenCarrusel {
+  max-width: 100%;
+  height: 500px;
+}
+
+@media (max-width: 500px) {
+  .ImagenCarrusel {
+    max-width: 100%;
+    height: 250px;
+  }
+}/*# sourceMappingURL=carrusel-de-marcas.component.css.map */

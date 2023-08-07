@@ -1,0 +1,14 @@
+<!---------Input----------->
+<input
+  class="Input"
+  [(ngModel)]="nameSearch"
+  required=""
+  autocomplete="off"
+  placeholder="Eso que querés.. buscalo acá"
+  id="search"
+  type="search"
+/>
+<!-----------Boton Buscador----------->
+<button (click)="BuscarProducto(nameSearch)" class="btn-Search">
+  <i class="fas fa-search"></i>
+</button>

@@ -1,0 +1,55 @@
+.SectionFavoritos {
+  height: 1200px;
+}
+
+.ContainerCardPc {
+  width: 300px;
+  height: 500px;
+  margin: 15px;
+  border: 0.5px solid #cdcdcd;
+  border-radius: 10px;
+}
+.ContainerCardPc .ContainerNombre {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ContainerCardPc .ContainerInformacionPrecioName {
+  padding: 0px 25px;
+}
+.ContainerCardPc img {
+  width: 100%;
+  height: 300px;
+}
+.ContainerCardPc p {
+  font-size: 15px;
+  color: rgb(173, 171, 171);
+}
+
+.ContainerCardPc:hover {
+  border: 0.5px solid rgb(116, 219, 90);
+}
+
+.ContainerMayorCards {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 150px;
+}
+.ContainerMayorCards a {
+  text-decoration: none;
+  color: black;
+}
+
+.SectionCards {
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ContainerNoHayFav {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}/*# sourceMappingURL=favoritos.component.css.map */

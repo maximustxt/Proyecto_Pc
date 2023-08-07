@@ -1,0 +1,13 @@
+h3 {
+  font-family: inherit;
+  text-align: center;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+}
+div section {
+  width: 75%;
+  background-color: #bdbdc5;
+}/*# sourceMappingURL=carrusel-de-marcas-sponsors.component.css.map */

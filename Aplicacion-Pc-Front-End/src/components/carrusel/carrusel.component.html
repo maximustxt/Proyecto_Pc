@@ -1,0 +1,48 @@
+<div
+  style="width: 400px; height: 500px; margin-right: 200px"
+  id="carouselExample"
+  class="carousel slide"
+>
+  <div class="carousel-inner">
+    <div
+      style="width: 400px; height: 500px"
+      *ngFor="let imagen of ImagenesDetailCarrusel; let i = index"
+      [ngClass]="{ 'carousel-item': true, active: i === 0 }"
+    >
+      <!-------------------------Cada Imagen Del Carrusel------------------------>
+      <img
+        [src]="imagen"
+        class="d-block w-100"
+        style="max-width: 100%; max-height: 100%"
+      />
+    </div>
+  </div>
+  <!---------------------Boton Atras------------------------->
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="prev"
+  >
+    <span
+      style="background-color: rgb(80, 79, 79)"
+      class="carousel-control-prev-icon"
+      aria-hidden="true"
+    ></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <!---------------------Boton Siguiente------------------------->
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="next"
+  >
+    <span
+      style="background-color: rgb(80, 79, 79)"
+      class="carousel-control-next-icon"
+      aria-hidden="true"
+    ></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

@@ -1,0 +1,114 @@
+<div class="ContainerSpan" (click)="toggleMenu()">
+  <i
+    class="IconoHamburgesa"
+    [ngClass]="booleanoToggleMenu ? 'fas fa-times' : 'fas fa-bars'"
+  ></i>
+  <a routerLink="/Home">
+    <div class="icono-martix">MARTI<span>X</span></div>
+  </a>
+  <div class="Fav-Carrito">
+    <!-------------------------------------->
+    <ng-container *ngIf="DatoUsuario">
+      <a routerLink="/Carrito" class="carrito-icon"
+        ><i class="fas fa-shopping-cart"></i>
+        <div>
+          <span>{{ ContadorCarrito }}</span>
+        </div>
+      </a>
+    </ng-container>
+  </div>
+</div>
+<!----------------------------------INICIAR SESION-------------------------------------------->
+<nav>
+  <div [ngClass]="booleanoToggleMenu ? 'salida' : 'escondida'">
+    <!-- <a routerLink="/Home"> -->
+    <button class="BotonIcono" (click)="LLevarAlHome()">
+      <div class="icono-martix">MARTI<span>X</span></div>
+    </button>
+    <!-- </a> -->
+    <!-----------------------------USUARIO------------------------------>
+    <ng-container *ngIf="!DatoUsuario">
+      <a class="InicioSesion" routerLink="/InicioDeSesion"
+        ><i class="fas fa-user"></i>INICIAR SESION</a
+      >
+    </ng-container>
+    <!--SI EXIST EL USUARIO-->
+    <ng-container *ngIf="DatoUsuario">
+      <div class="ContaienrUser">
+        <div class="ContainerPerfilUser">
+          <img src="{{ DatoUsuario.Imagen }}" />
+          <a (click)="FuncionAbrirPerfil()">
+            <ng-container *ngIf="!PanelPerfil">
+              <i class="fas fa-angle-down"></i>
+            </ng-container>
+            <ng-container *ngIf="PanelPerfil">
+              <i class="fas fa-angle-up"></i>
+            </ng-container>
+          </a>
+        </div>
+        <div class="PanelPerfil" *ngIf="PanelPerfil">
+          <a routerLink="/Perfil">Perfil</a>
+          <a (click)="FuncionLogoutPerfil()">Logout</a>
+        </div>
+      </div>
+    </ng-container>
+    <!----------------------------------------------------------------->
+    <!--------------------------------------SEARCH------------------------------------------------>
+    <app-search
+      (EnviarResultadoSearch)="ObtenerDatoSearch($event)"
+    ></app-search>
+    <!-----------------------------------SELECT DE PRODUCTOS--------------------------------->
+    <div class="dropdown">
+      <a
+        class="btn btn-secondary dropdown-toggle"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Categorias
+      </a>
+
+      <ul class="dropdown-menu">
+        <li class="LiSelect">
+          <a style="color: #000" class="dropdown-item" routerLink="/Componentes"
+            >Componentes</a
+          >
+        </li>
+        <li class="LiSelect">
+          <a style="color: #000" class="dropdown-item" routerLink="/Perifericos"
+            >Perifericos</a
+          >
+        </li>
+        <li class="LiSelect">
+          <a style="color: #000" class="dropdown-item" routerLink="/Notebooks"
+            >Notebooks</a
+          >
+        </li>
+        <li class="LiSelect">
+          <a
+            style="color: #000"
+            class="dropdown-item"
+            routerLink="/Sillas_Butacas"
+            >Sillas y Butacas</a
+          >
+        </li>
+        <li class="LiSelect">
+          <a style="color: #000" class="dropdown-item" routerLink="/Monitores"
+            >Monitores</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!------------------------------------------------------------------------------------------->
+    <div class="Fav-Carrito">
+      <ng-container *ngIf="DatoUsuario">
+        <a routerLink="/Carrito" class="carrito-icon"
+          ><i class="fas fa-shopping-cart"></i>
+          <div>
+            <span>{{ ContadorCarrito }}</span>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</nav>

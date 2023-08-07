@@ -1,0 +1,37 @@
+<h3>PRODUCTOS DESTACADOS</h3>
+<ng-container *ngIf="Computadoras.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <!------------------------CADA PRODUCTO DESTACADO--------------------------->
+      <ng-container *ngFor="let Compu of Computadoras">
+        <a [routerLink]="['../Detail', Compu._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img [src]="Compu.Imagen" />
+            </section>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ Compu.Precio | pipePrecio }}</h3>
+              <!-----------------name------------------>
+              <ng-container *ngIf="Compu.name">
+                <div class="ContainerNombre">
+                  <p>{{ Compu.name }}</p>
+                </div>
+              </ng-container>
+              <!-------------------------------------->
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <app-carrusel-de-marcas-sponsors></app-carrusel-de-marcas-sponsors>
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

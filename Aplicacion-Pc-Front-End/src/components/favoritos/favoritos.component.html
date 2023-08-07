@@ -1,0 +1,45 @@
+<app-nav-bar></app-nav-bar>
+
+<!-------------------------------------Favoritos------------------------------------->
+<ng-container *ngIf="ArrayFavoritos">
+  <div style="margin-top: 150px; text-align: center">
+    <h3>Bienvenido/a {{ UserLocal.name }}</h3>
+    <br />
+    <br />
+    <br />
+    <h5>FAVORITOS</h5>
+  </div>
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngFor="let Compu of ArrayFavoritos">
+        <div class="ContainerCardPc">
+          <button
+            style="margin: 5px"
+            class="btn btn-danger"
+            (click)="EliminarFavorito(Compu._id)"
+          >
+            X
+          </button>
+          <section class="ContainerImg">
+            <img [src]="Compu.Imagen" />
+          </section>
+          <div class="ContainerInformacionPrecioName">
+            <h3>{{ Compu.Precio | pipePrecio }}</h3>
+            <!-- ------------------Nombre---------------------->
+            <ng-container *ngIf="Compu.name">
+              <p>{{ Compu.name }}</p>
+            </ng-container>
+            <!------------------------------------------------------------>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <!------------------------------Si no hay favoritos------------------------------------>
+  <ng-container *ngIf="!ArrayFavoritos.length && ArrayFavoritos.length === 0">
+    <div class="ContainerNoHayFav">
+      <h3>No Hay Favoritos</h3>
+    </div>
+  </ng-container>
+  <app-footer></app-footer>
+</ng-container>

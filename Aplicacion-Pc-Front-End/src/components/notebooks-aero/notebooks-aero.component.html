@@ -1,0 +1,42 @@
+<!--------Nav Bar--------->
+<app-nav-bar></app-nav-bar>
+<img
+  src="https://lezamapc.com.ar/img/cms/Banner/Aero-13Gen-1920x500.png"
+  width="100%"
+  style="margin-top: 100px"
+/>
+<ng-container *ngIf="NotebooksAero.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <!------------------Por Cada Notebooks------------------>
+      <ng-container *ngFor="let Notebook of NotebooksAero">
+        <a [routerLink]="['../Detail', Notebook._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img
+                [ngStyle]="{ opacity: calcularOpacidad(Notebook.Stock) }"
+                [src]="Notebook.Imagen"
+              />
+            </section>
+            <p class="SinStock" *ngIf="!Notebook.Stock">
+              {{ "Sin Stock" | uppercase }}
+            </p>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ Notebook.Precio | pipePrecio }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ Notebook.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <!------------Armado De Pc------------>
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

@@ -1,0 +1,886 @@
+<app-nav-bar></app-nav-bar>
+<!---------------------------------------Detail Computadoras--------------------------------------->
+<ng-container *ngIf="ComputadoraDetail">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngIf="ComputadoraDetail">
+        <button class="BtnListado" routerLink="/Notebooks">
+          <i class="fas fa-arrow-left"></i> Volver al listado
+        </button>
+        <div class="ContainerCardPc">
+          <hr />
+          <!-------------------------Boton Favoritos------------------------------->
+          <div style="width: 100%; display: flex; justify-content: end">
+            <button (click)="FuncionFavorito()" class="botonFavorito">
+              <i
+                class="fas fa-heart"
+                [ngStyle]="{
+                  color: Booleano ? '#96c817' : 'gray',
+                  'font-size.px': 25
+                }"
+              ></i>
+            </button>
+          </div>
+          <!---------------------------------Computadora-------------------------------------->
+          <div class="ContainerNombre">
+            <p>{{ ComputadoraDetail.name }}</p>
+            <p>MODELO: {{ ComputadoraDetail._id }}</p>
+          </div>
+          <section class="section">
+            <div class="ContainerImagenesDeDetail">
+              <ng-container *ngFor="let image of ComputadoraDetail.Imagenes">
+                <a style="cursor: pointer" (click)="CambiarImagen(image)">
+                  <div
+                    [ngClass]="
+                      ImagenesDetailCarruselClick === image
+                        ? 'ClassTrue'
+                        : 'ClassFalse'
+                    "
+                    class="ContainerImagenes"
+                  >
+                    <img [ngSrc]="image" width="30" height="60" />
+                  </div>
+                </a>
+              </ng-container>
+            </div>
+
+            <div class="ContainerDivImg">
+              <img src="{{ ImagenesDetailCarruselClick }}" />
+            </div>
+
+            <!------------------------------------------------------------>
+            <br />
+            <br />
+            <div class="ContaienrCompra">
+              <p>Pagá con Stripe</p>
+              <i
+                style="font-size: 60px; color: #e9a20b"
+                class="fab fa-stripe"
+              ></i>
+              <h3>{{ ComputadoraDetail.Precio | pipePrecio }}</h3>
+              <!--------------Envio Producto------------->
+              <div style="display: flex; align-items: center; margin: 30px">
+                <div
+                  style="
+                    width: fit-content;
+                    height: fit-content;
+                    border-radius: 50%;
+                    background-color: #eee;
+                    padding: 10px 10px;
+                  "
+                >
+                  <i class="fas fa-truck"></i>
+                </div>
+                <p style="margin-left: 10px">Envios Gratis A todo el Pais</p>
+              </div>
+              <!-------------------------------------------->
+              <p style="color: #96c817" *ngIf="ComputadoraDetail.Stock > 0">
+                Stock Disponible
+              </p>
+              <p
+                style="color: red; font-weight: 800"
+                *ngIf="ComputadoraDetail.Stock === 0"
+              >
+                No Hay Stock
+              </p>
+              <div class="ContainerBotonCompraYContador">
+                <section class="SectionContador">
+                  <div class="ContainerBotonCompraYContador">
+                    <div class="CantidadDeStock">
+                      <div class="DivP">
+                        <p>{{ ContadorCompra }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ContainerFlechasContador">
+                    <a (click)="FuncionIncrementaContador()">
+                      <i class="fas fa-arrow-up"></i>
+                    </a>
+                    <a (click)="FuncionDecrementaContador()">
+                      <i class="fas fa-arrow-down"></i>
+                    </a>
+                  </div>
+                </section>
+                <button
+                  (click)="FuncionComprar(ComputadoraDetail._id)"
+                  class="BotonCompra"
+                >
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+          <div class="ContainerInformacion">
+            <h3>Descripción</h3>
+            <br />
+            <p>{{ ComputadoraDetail.Descripcion }}</p>
+            <!-------------------------------Caracteristicas----------------------------------->
+            <h3>Caracteristicas</h3>
+            <div class="ContainerCaracteristicas">
+              <p>
+                <i class="fas fa-cogs"></i> Sistema Operativo:
+                <br />
+                <br />
+                {{ ComputadoraDetail.SistemaOperativo }}
+              </p>
+              <p>
+                <i class="fas fa-registered"></i> Marca:
+                <br />
+                <br />
+                {{ ComputadoraDetail.Marca }}
+              </p>
+              <p>
+                <i class="fas fa-memory"></i> Memoria Ram :
+                <br />
+                <br />
+                {{ ComputadoraDetail.MemoriaRam }}
+              </p>
+              <p>
+                <i class="fas fa-microchip"></i> Procesador:
+                <br />
+                <br />
+                {{ ComputadoraDetail.Procesador }}
+              </p>
+              <p>
+                <i class="fas fa-laptop"></i> Notebook :
+                <br />
+                <br />
+                {{ ComputadoraDetail.Categorias }}
+              </p>
+              <p>
+                <i class="fas fa-hdd"></i> Almacenamiento:
+                <br />
+                <br />
+                {{ ComputadoraDetail.DiscoDuro }}
+              </p>
+              <p>
+                <i class="fas fa-video"></i> Placa De Video:
+                <br />
+                <br />
+                {{ ComputadoraDetail.PlacaDeVideo }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <br />
+        <br />
+
+        <h5 style="font-weight: bold">PRODUCTOS QUE TE PUEDEN INTERESAR:</h5>
+        <br />
+        <app-carrusel-detail-productos></app-carrusel-detail-productos>
+        <!----------------ACA VAN EL OTRO CARRUSEL DE LOS PRODUCTOS DESTACADOS----------------->
+      </ng-container>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <br />
+  <br />
+  <app-footer></app-footer>
+</ng-container>
+
+<!------------------------------------------Detail Componets-------------------------------------------------->
+
+<ng-container *ngIf="ComponenteDetail">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngIf="ComponenteDetail">
+        <button class="BtnListado" routerLink="/Componentes">
+          <i class="fas fa-arrow-left"></i> Volver al listado
+        </button>
+        <div class="ContainerCardPc">
+          <hr />
+
+          <!-------------------------Boton Favoritos------------------------------->
+          <div style="width: 100%; display: flex; justify-content: end">
+            <button (click)="FuncionFavorito()" class="botonFavorito">
+              <i
+                class="fas fa-heart"
+                [ngStyle]="{
+                  color: Booleano ? '#96c817' : 'gray',
+                  'font-size.px': 25
+                }"
+              ></i>
+            </button>
+          </div>
+          <!---------------------------------Componentes-------------------------------------->
+          <div class="ContainerNombre">
+            <p>{{ ComponenteDetail.name }}</p>
+            <p>MODELO: {{ ComponenteDetail._id }}</p>
+          </div>
+          <section class="section">
+            <div class="ContainerImagenesDeDetail">
+              <ng-container *ngFor="let image of ComponenteDetail.Imagenes">
+                <a style="cursor: pointer" (click)="CambiarImagen(image)">
+                  <div
+                    [ngClass]="
+                      ImagenesDetailCarruselClick === image
+                        ? 'ClassTrue'
+                        : 'ClassFalse'
+                    "
+                    class="ContainerImagenes"
+                  >
+                    <img [ngSrc]="image" width="30" height="60" />
+                  </div>
+                </a>
+              </ng-container>
+            </div>
+
+            <div class="ContainerDivImg">
+              <img src="{{ ImagenesDetailCarruselClick }}" />
+            </div>
+
+            <!------------------------------------------------------------>
+            <br />
+            <br />
+            <div class="ContaienrCompra">
+              <p>Pagá con Stripe</p>
+              <i
+                style="font-size: 60px; color: #e9a20b"
+                class="fab fa-stripe"
+              ></i>
+              <h3>{{ ComponenteDetail.Precio | pipePrecio }}</h3>
+              <!--------------Envio Producto------------->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+
+                  margin: 30px;
+                "
+              >
+                <div
+                  style="
+                    width: fit-content;
+                    height: fit-content;
+                    border-radius: 50%;
+                    background-color: #eee;
+                    padding: 10px 10px;
+                  "
+                >
+                  <i class="fas fa-truck"></i>
+                </div>
+                <p style="margin-left: 10px">Envios Gratis A todo el Pais</p>
+              </div>
+              <!-------------------------------------------->
+              <p style="color: #96c817" *ngIf="ComponenteDetail.Stock > 0">
+                Stock Disponible
+              </p>
+              <p style="color: red" *ngIf="ComponenteDetail.Stock === 0">
+                No Hay Stock
+              </p>
+              <div class="ContainerBotonCompraYContador">
+                <section class="SectionContador">
+                  <div class="ContainerBotonCompraYContador">
+                    <div class="CantidadDeStock">
+                      <div class="DivP">
+                        <p>{{ ContadorCompra }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ContainerFlechasContador">
+                    <a (click)="FuncionIncrementaContador()">
+                      <i class="fas fa-arrow-up"></i>
+                    </a>
+                    <a (click)="FuncionDecrementaContador()">
+                      <i class="fas fa-arrow-down"></i>
+                    </a>
+                  </div>
+                </section>
+                <button
+                  (click)="FuncionComprar(ComponenteDetail._id)"
+                  class="BotonCompra"
+                >
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+          <div class="ContainerInformacion">
+            <h3>Descripción</h3>
+            <br />
+            <p>{{ ComponenteDetail.Descripcion }}</p>
+            <!-------------------------------Caracteristicas----------------------------------->
+            <h3>Características</h3>
+            <br />
+            <h5
+              *ngIf="
+                !ComponenteDetail.FactorDeForm &&
+                !ComponenteDetail.Compatibilidad &&
+                !ComponenteDetail.TipoRam
+              "
+            >
+              No Hay Caracteristicas Disponibles
+            </h5>
+            <section class="SectionCaracteristicas">
+              <!------------------Factor Forma--------------------->
+              <div *ngIf="ComponenteDetail.FactorDeForm">
+                <div class="DivFactorForma">
+                  <img
+                    src="https://www.venex.com.ar/options_images/factor-de-forma.png"
+                  />
+                  <p>FACTOR DE FORMA:</p>
+                  <p>{{ ComponenteDetail.FactorDeForm }}</p>
+                </div>
+              </div>
+              <!-----------------Compatibilidad-------------------->
+              <div *ngIf="ComponenteDetail.Compatibilidad">
+                <div class="DivFactorForma">
+                  <img src="https://www.venex.com.ar/options_images/comp.png" />
+                  <p>COMPATIBILIDAD:</p>
+                  <p>{{ ComponenteDetail.Compatibilidad }}</p>
+                </div>
+              </div>
+              <!-------------------Tipo Ram------------------------>
+              <div *ngIf="ComponenteDetail.TipoRam">
+                <div class="DivFactorForma">
+                  <img
+                    src="https://www.venex.com.ar/options_images/asfasf.png"
+                  />
+                  <p>TIPO RAM:</p>
+                  <p>{{ ComponenteDetail.TipoRam }}</p>
+                </div>
+              </div>
+              <!--------------------------------------------------->
+            </section>
+            <br />
+            <br />
+            <br />
+            <br />
+            <h5 style="font-weight: bold">
+              PRODUCTOS QUE TE PUEDEN INTERESAR:
+            </h5>
+            <br />
+            <app-carrusel-detail-productos></app-carrusel-detail-productos>
+            <!----------------ACA VAN EL OTRO CARRUSEL DE LOS PRODUCTOS DESTACADOS----------------->
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="ContainerCrearPc">
+          <a routerLink="/ArmarPc">
+            <img
+              src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg"
+            />
+          </a>
+        </div>
+        <br />
+        <br />
+      </ng-container>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ng-container>
+
+<!------------------------------------------Detail Perifericos-------------------------------------------------->
+
+<ng-container *ngIf="PerifericosDetail">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngIf="PerifericosDetail">
+        <button class="BtnListado" routerLink="/Perifericos">
+          <i class="fas fa-arrow-left"></i> Volver al listado
+        </button>
+        <div class="ContainerCardPc">
+          <hr />
+
+          <!-------------------------Boton Favoritos------------------------------->
+          <div style="width: 100%; display: flex; justify-content: end">
+            <button (click)="FuncionFavorito()" class="botonFavorito">
+              <i
+                class="fas fa-heart"
+                [ngStyle]="{
+                  color: Booleano ? '#96c817' : 'gray',
+                  'font-size.px': 25
+                }"
+              ></i>
+            </button>
+          </div>
+          <!---------------------------------Perifericos-------------------------------------->
+          <div class="ContainerNombre">
+            <p>{{ PerifericosDetail.name }}</p>
+            <p>MODELO: {{ PerifericosDetail._id }}</p>
+          </div>
+          <section class="section">
+            <div class="ContainerImagenesDeDetail">
+              <ng-container *ngFor="let image of PerifericosDetail.Imagenes">
+                <a style="cursor: pointer" (click)="CambiarImagen(image)">
+                  <div
+                    [ngClass]="
+                      ImagenesDetailCarruselClick === image
+                        ? 'ClassTrue'
+                        : 'ClassFalse'
+                    "
+                    class="ContainerImagenes"
+                  >
+                    <img [ngSrc]="image" width="30" height="60" />
+                  </div>
+                </a>
+              </ng-container>
+            </div>
+
+            <div class="ContainerDivImg">
+              <img src="{{ ImagenesDetailCarruselClick }}" />
+            </div>
+
+            <!------------------------------------------------------------>
+            <br />
+            <br />
+            <div class="ContaienrCompra">
+              <p>Pagá con Stripe</p>
+              <i
+                style="font-size: 60px; color: #e9a20b"
+                class="fab fa-stripe"
+              ></i>
+              <h3>{{ PerifericosDetail.Precio | pipePrecio }}</h3>
+              <!--------------Envio Producto------------->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+
+                  margin: 30px;
+                "
+              >
+                <div
+                  style="
+                    width: fit-content;
+                    height: fit-content;
+                    border-radius: 50%;
+                    background-color: #eee;
+                    padding: 10px 10px;
+                  "
+                >
+                  <i class="fas fa-truck"></i>
+                </div>
+                <p style="margin-left: 10px">Envios Gratis A todo el Pais</p>
+              </div>
+              <!-------------------------------------------->
+              <p style="color: #96c817" *ngIf="PerifericosDetail.Stock > 0">
+                Stock Disponible
+              </p>
+              <p style="color: red" *ngIf="PerifericosDetail.Stock === 0">
+                No Hay Stock
+              </p>
+              <div class="ContainerBotonCompraYContador">
+                <section class="SectionContador">
+                  <div class="ContainerBotonCompraYContador">
+                    <div class="CantidadDeStock">
+                      <div class="DivP">
+                        <p>{{ ContadorCompra }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ContainerFlechasContador">
+                    <a (click)="FuncionIncrementaContador()">
+                      <i class="fas fa-arrow-up"></i>
+                    </a>
+                    <a (click)="FuncionDecrementaContador()">
+                      <i class="fas fa-arrow-down"></i>
+                    </a>
+                  </div>
+                </section>
+                <button
+                  (click)="FuncionComprar(PerifericosDetail._id)"
+                  class="BotonCompra"
+                >
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+          <div class="ContainerInformacion">
+            <h3>Descripción</h3>
+            <br />
+            <p>{{ PerifericosDetail.Descripcion }}</p>
+            <!-------------------------------Caracteristicas----------------------------------->
+            <h3>Caracteristicas</h3>
+            <br />
+            <div class="ContaienrCaracteristicas">
+              <div>
+                <i class="fas fa-registered"></i> Marca:
+                <p>{{ PerifericosDetail.Marca }}</p>
+              </div>
+              <!--Conexion-->
+              <div>
+                <img
+                  src="https://www.venex.com.ar/options_images/logo-conectividad.jpg"
+                />
+                Tipo de Conexión:
+                <p>{{ PerifericosDetail.TipoDeConexion }}</p>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <h5 style="font-weight: bold">
+              PRODUCTOS QUE TE PUEDEN INTERESAR:
+            </h5>
+            <br />
+            <app-carrusel-detail-productos></app-carrusel-detail-productos>
+            <!----------------ACA VAN EL OTRO CARRUSEL DE LOS PRODUCTOS DESTACADOS----------------->
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="ContainerCrearPc">
+          <a routerLink="/ArmarPc">
+            <img
+              src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg"
+            />
+          </a>
+        </div>
+        <br />
+        <br />
+      </ng-container>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ng-container>
+
+<!------------------------------------------Detail Sillas y Butacas-------------------------------------------------->
+
+<ng-container *ngIf="Silla_ButacaDetail">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngIf="Silla_ButacaDetail">
+        <button class="BtnListado" routerLink="/Sillas_Butacas">
+          <i class="fas fa-arrow-left"></i> Volver al listado
+        </button>
+        <div class="ContainerCardPc">
+          <hr />
+
+          <!-------------------------Boton Favoritos------------------------------->
+          <div style="width: 100%; display: flex; justify-content: end">
+            <button (click)="FuncionFavorito()" class="botonFavorito">
+              <i
+                class="fas fa-heart"
+                [ngStyle]="{
+                  color: Booleano ? '#96c817' : 'gray',
+                  'font-size.px': 25
+                }"
+              ></i>
+            </button>
+          </div>
+          <!---------------------------------Perifericos-------------------------------------->
+          <div class="ContainerNombre">
+            <p>{{ Silla_ButacaDetail.name }}</p>
+            <p>MODELO: {{ Silla_ButacaDetail._id }}</p>
+          </div>
+          <section class="section">
+            <div class="ContainerImagenesDeDetail">
+              <ng-container *ngFor="let image of Silla_ButacaDetail.Imagenes">
+                <a style="cursor: pointer" (click)="CambiarImagen(image)">
+                  <div
+                    [ngClass]="
+                      ImagenesDetailCarruselClick === image
+                        ? 'ClassTrue'
+                        : 'ClassFalse'
+                    "
+                    class="ContainerImagenes"
+                  >
+                    <img [ngSrc]="image" width="30" height="60" />
+                  </div>
+                </a>
+              </ng-container>
+            </div>
+
+            <div class="ContainerDivImg">
+              <img src="{{ ImagenesDetailCarruselClick }}" />
+            </div>
+
+            <!------------------------------------------------------------>
+            <br />
+            <br />
+            <div class="ContaienrCompra">
+              <p>Pagá con Stripe</p>
+              <i
+                style="font-size: 60px; color: #e9a20b"
+                class="fab fa-stripe"
+              ></i>
+              <h3>{{ Silla_ButacaDetail.Precio | pipePrecio }}</h3>
+              <!--------------Envio Producto------------->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+
+                  margin: 30px;
+                "
+              >
+                <div
+                  style="
+                    width: fit-content;
+                    height: fit-content;
+                    border-radius: 50%;
+                    background-color: #eee;
+                    padding: 10px 10px;
+                  "
+                >
+                  <i class="fas fa-truck"></i>
+                </div>
+                <p style="margin-left: 10px">Envios Gratis A todo el Pais</p>
+              </div>
+              <!-------------------------------------------->
+              <p style="color: #96c817" *ngIf="Silla_ButacaDetail.Stock > 0">
+                Stock Disponible
+              </p>
+              <p style="color: red" *ngIf="Silla_ButacaDetail.Stock === 0">
+                No Hay Stock
+              </p>
+              <div class="ContainerBotonCompraYContador">
+                <section class="SectionContador">
+                  <div class="ContainerBotonCompraYContador">
+                    <div class="CantidadDeStock">
+                      <div class="DivP">
+                        <p>{{ ContadorCompra }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ContainerFlechasContador">
+                    <a (click)="FuncionIncrementaContador()">
+                      <i class="fas fa-arrow-up"></i>
+                    </a>
+                    <a (click)="FuncionDecrementaContador()">
+                      <i class="fas fa-arrow-down"></i>
+                    </a>
+                  </div>
+                </section>
+                <button
+                  (click)="FuncionComprar(Silla_ButacaDetail._id)"
+                  class="BotonCompra"
+                >
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+          <div class="ContainerInformacion">
+            <h3>Descripción</h3>
+            <br />
+            <p>{{ Silla_ButacaDetail.Descripcion }}</p>
+            <!------------------------------------------------------------------------------------->
+            <br />
+            <br />
+            <br />
+            <br />
+            <h5 style="font-weight: bold">
+              PRODUCTOS QUE TE PUEDEN INTERESAR:
+            </h5>
+            <br />
+            <app-carrusel-detail-productos></app-carrusel-detail-productos>
+            <!----------------ACA VAN EL OTRO CARRUSEL DE LOS PRODUCTOS DESTACADOS----------------->
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="ContainerCrearPc">
+          <a routerLink="/ArmarPc">
+            <img
+              src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg"
+            />
+          </a>
+        </div>
+        <br />
+        <br />
+      </ng-container>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ng-container>
+
+<!------------------------------------------Monitores-------------------------------------------------->
+
+<ng-container *ngIf="MonitoresDetail">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngIf="MonitoresDetail">
+        <button class="BtnListado" routerLink="/Monitores">
+          <i class="fas fa-arrow-left"></i> Volver al listado
+        </button>
+        <div class="ContainerCardPc">
+          <hr />
+
+          <!-------------------------Boton Favoritos------------------------------->
+          <div style="width: 100%; display: flex; justify-content: end">
+            <button (click)="FuncionFavorito()" class="botonFavorito">
+              <i
+                class="fas fa-heart"
+                [ngStyle]="{
+                  color: Booleano ? '#96c817' : 'gray',
+                  'font-size.px': 25
+                }"
+              ></i>
+            </button>
+          </div>
+          <!---------------------------------Perifericos-------------------------------------->
+          <div class="ContainerNombre">
+            <p>{{ MonitoresDetail.name }}</p>
+            <p>MODELO: {{ MonitoresDetail._id }}</p>
+          </div>
+          <section class="section">
+            <div class="ContainerImagenesDeDetail">
+              <ng-container *ngFor="let image of MonitoresDetail.Imagenes">
+                <a style="cursor: pointer" (click)="CambiarImagen(image)">
+                  <div
+                    [ngClass]="
+                      ImagenesDetailCarruselClick === image
+                        ? 'ClassTrue'
+                        : 'ClassFalse'
+                    "
+                    class="ContainerImagenes"
+                  >
+                    <img [ngSrc]="image" width="30" height="60" />
+                  </div>
+                </a>
+              </ng-container>
+            </div>
+
+            <div class="ContainerDivImg">
+              <img src="{{ ImagenesDetailCarruselClick }}" />
+            </div>
+
+            <!------------------------------------------------------------>
+            <br />
+            <br />
+            <div class="ContaienrCompra">
+              <p>Pagá con Stripe</p>
+              <i
+                style="font-size: 60px; color: #e9a20b"
+                class="fab fa-stripe"
+              ></i>
+              <h3>{{ MonitoresDetail.Precio | pipePrecio }}</h3>
+              <!--------------Envio Producto------------->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+
+                  margin: 30px;
+                "
+              >
+                <div
+                  style="
+                    width: fit-content;
+                    height: fit-content;
+                    border-radius: 50%;
+                    background-color: #eee;
+                    padding: 10px 10px;
+                  "
+                >
+                  <i class="fas fa-truck"></i>
+                </div>
+                <p style="margin-left: 10px">Envios Gratis A todo el Pais</p>
+              </div>
+              <!-------------------------------------------->
+              <p style="color: #96c817" *ngIf="MonitoresDetail.Stock > 0">
+                Stock Disponible
+              </p>
+              <p style="color: red" *ngIf="MonitoresDetail.Stock === 0">
+                No Hay Stock
+              </p>
+              <div class="ContainerBotonCompraYContador">
+                <section class="SectionContador">
+                  <div class="ContainerBotonCompraYContador">
+                    <div class="CantidadDeStock">
+                      <div class="DivP">
+                        <p>{{ ContadorCompra }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ContainerFlechasContador">
+                    <a (click)="FuncionIncrementaContador()">
+                      <i class="fas fa-arrow-up"></i>
+                    </a>
+                    <a (click)="FuncionDecrementaContador()">
+                      <i class="fas fa-arrow-down"></i>
+                    </a>
+                  </div>
+                </section>
+                <button
+                  (click)="FuncionComprar(MonitoresDetail._id)"
+                  class="BotonCompra"
+                >
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+          <div class="ContainerInformacion">
+            <h3>Descripción</h3>
+            <br />
+            <p>{{ MonitoresDetail.Descripcion }}</p>
+            <br />
+            <!----------------------------------------CARACTERISTICAS--------------------------------------------->
+            <h3>Caracteristicas</h3>
+            <br />
+            <div class="CaracteristicasMonitores">
+              <img
+                width="35"
+                height="40"
+                src="https://www.venex.com.ar/options_images/logo-panel.jpg"
+              />
+              <span>PANEL</span>
+            </div>
+            <p>Tipo: {{ MonitoresDetail.Panel }}</p>
+            <!------------------------------------------------------------------------------------->
+            <br />
+            <br />
+            <br />
+            <br />
+            <h5 style="font-weight: bold">
+              PRODUCTOS QUE TE PUEDEN INTERESAR:
+            </h5>
+            <br />
+            <app-carrusel-detail-productos></app-carrusel-detail-productos>
+            <!----------------ACA VAN EL OTRO CARRUSEL DE LOS PRODUCTOS DESTACADOS----------------->
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="ContainerCrearPc">
+          <a routerLink="/ArmarPc">
+            <img
+              src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg"
+            />
+          </a>
+        </div>
+        <br />
+        <br />
+      </ng-container>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

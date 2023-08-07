@@ -1,0 +1,256 @@
+.SectionCarrito {
+  font-family: "Montserrat Regular", sans-serif;
+  height: 100%;
+  margin-top: 150px;
+  margin-bottom: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  h5 {
+    font-size: 15px;
+    color: #5a5a5a;
+    font-weight: bold;
+    margin: 50px;
+  }
+
+  .ContainerCarritoVacio {
+    margin-top: 100px;
+    text-align: center;
+    align-items: center;
+
+    button {
+      margin-top: 25px;
+      background-color: #3483fa;
+      border-color: #104e7f;
+      color: #fff;
+      border-radius: 3px;
+      border-width: 0 0 2px;
+      height: unset;
+      padding: 15px 15px;
+      width: fit-content;
+      font-family: "Montserrat Regular";
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+  }
+
+  .SectionCards {
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .DivCarrito {
+    display: flex;
+    align-items: center;
+    background-color: #b4b4b4;
+    h3 {
+      color: #fff;
+      font-size: 18px;
+    }
+    i {
+      color: #ffffff;
+      margin: 15px;
+      margin-right: 50px;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+.ContainerCardPc {
+  display: flex;
+  width: 900px;
+  margin: 10px;
+  border-bottom: 1px solid #cdcdcf;
+  padding: 10px;
+  img {
+    width: 100px;
+  }
+  .ContainerImg {
+    border: 0.5px solid #cdcdcd;
+    width: fit-content;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .ContainerNombre {
+    width: 300px;
+    height: 100%;
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    height: 50px;
+  }
+  i {
+    color: red;
+    font-size: 18px;
+  }
+}
+
+//-----------------------------------------Container:
+
+.ContainerBotonCompraYContador {
+  display: flex;
+}
+
+.CantidadDeStock {
+  font-size: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 0.5px solid #cdcdcd;
+  width: 50px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  .DivP {
+    width: 50px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      margin-top: 18px;
+      font-size: 18px;
+    }
+  }
+}
+
+.CantidadDeStock:active {
+  border: 0.5px solid #96c817;
+}
+
+.ContainerFlechasContador {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  a {
+    margin: 5px 0 0 1px;
+    border: none;
+    height: fit-content;
+    background-color: transparent;
+    font-size: 12px;
+    cursor: pointer;
+    i {
+      font-size: 12px;
+      color: #3483fa;
+    }
+  }
+}
+
+.SectionContador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SectionBotonEliminar {
+  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SectionPrecio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+  margin-left: 30px;
+
+  .PrecioBase {
+    font-weight: bold;
+    color: #007f00;
+  }
+}
+
+.SectionPrecioSubtotal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 30px;
+  width: fit-content;
+}
+
+.ConatinerPagarCupon {
+  width: 300px;
+  padding: 20px 20px;
+  border: 0.5px solid #cdcdcd;
+  button {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    border-radius: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 3px;
+    background-color: #75c701;
+    color: #ffffff;
+  }
+}
+
+.ContainerTotal {
+  display: flex;
+  .SpanPrecioTotal {
+    margin-left: 20px;
+  }
+}
+.SectionPagarCupon {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  .EliminarCarritoCompleto {
+    margin-top: 30px;
+    background-color: rgb(221, 77, 77);
+  }
+}
+
+.SectionBotonEliminar {
+  margin-right: 50px;
+}
+
+@media (max-width: 500px) {
+  .ContainerCardPc {
+    display: block;
+    margin-top: 50px;
+    border: 2px solid #d2d2d2;
+    border-radius: 5px;
+    .ContainerImg {
+      border: 1px solid #75c701;
+      display: flex;
+      justify-content: center;
+      padding: 10px 10px;
+      width: 100%;
+    }
+    .SectionContador {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

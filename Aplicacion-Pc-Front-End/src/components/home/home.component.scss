@@ -1,0 +1,143 @@
+.SectionSearch {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 100%;
+  height: fit-content;
+
+  h5 {
+    margin-top: 100px;
+    text-align: center;
+  }
+}
+
+.ContainerImagenes {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+  background-color: #2d2d33;
+  a {
+    cursor: pointer;
+    margin: 20px;
+  }
+}
+
+.ContainerImagenesAorus {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+  background-color: #2d2d33;
+  margin-bottom: 100px;
+  a {
+    cursor: pointer;
+  }
+}
+
+.ContainerCardPc {
+  width: 300px;
+  height: 450px;
+  margin: 15px;
+  border: 0.5px solid #cdcdcd;
+  border-radius: 10px;
+
+  .ContainerNombre {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ContainerInformacionPrecioName {
+    padding: 0px 25px;
+  }
+  img {
+    width: 100%;
+    height: 300px;
+  }
+  p {
+    font-size: 15px;
+    color: rgb(173, 171, 171);
+  }
+}
+
+.ContainerCardPc:hover {
+  border: 0.5px solid rgb(116, 219, 90);
+}
+
+.ContainerMayorCards {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.SectionCards {
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+//- Armar Pc:
+.ContainerCrearPc {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 25px;
+}
+
+@media (max-width: 1200px) {
+  .ContainerImagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ImagenPerifericos {
+      width: 450px;
+      height: 400px;
+    }
+    img {
+      margin: 10px;
+      width: 450px;
+      height: 400px;
+    }
+  }
+  .ContainerImagenesAorus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ImagenNotebooksAero {
+      width: 750px;
+      height: 200px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .ContainerImagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ImagenPerifericos {
+      width: 350px;
+      height: 200px;
+    }
+    img {
+      margin: 10px;
+      width: 350px;
+      height: 250px;
+    }
+  }
+  .ContainerImagenesAorus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ImagenNotebooksAero {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}

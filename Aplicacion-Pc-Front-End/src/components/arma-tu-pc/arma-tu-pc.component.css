@@ -1,0 +1,213 @@
+.SectionArmarPc {
+  margin-top: 100px;
+  margin-bottom: 300px;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+.SectionArmarPc .BotonIntel {
+  border: none;
+  background-color: transparent;
+  margin: 20px;
+}
+.SectionArmarPc .BotonIntel img {
+  width: 100px;
+}
+.SectionArmarPc .BotonAmd {
+  border: none;
+  background-color: transparent;
+  margin: 20px;
+}
+.SectionArmarPc .BotonAmd img {
+  width: 100px;
+}
+.SectionArmarPc .ContainerArmaPc {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+.SectionArmarPc .ContenidoSeleccionDeComponentes {
+  height: 500px;
+  margin: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.56);
+  display: block;
+}
+.SectionArmarPc .ContenidoSeleccionDeComponentes div {
+  display: flex;
+  justify-content: space-between;
+}
+.SectionArmarPc .ContenidoSeleccionDeComponentes div a {
+  margin: 50px;
+}
+
+.ContainerBotonReiniciarPrecio {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.ContainerBotonReiniciarPrecio .Boton_Precio_Total {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.56);
+  padding: 10px 30px;
+}
+.ContainerBotonReiniciarPrecio .Boton_Precio_Total button {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #3483fa;
+  border-radius: 5px;
+  color: #3483fa;
+  font-size: 15px;
+  font-family: montserrat;
+  background-color: #fff;
+  font-weight: 600;
+  text-align: left;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.ContainerCardPc {
+  width: 300px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5px 5px;
+  margin: 15px;
+  border: 0.5px solid #cdcdcd;
+  border-radius: 10px;
+}
+.ContainerCardPc .ContainerNombre {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ContainerCardPc .ContainerInformacionPrecioName {
+  padding: 0px 25px;
+}
+.ContainerCardPc img {
+  width: 100%;
+  height: 300px;
+}
+.ContainerCardPc p {
+  font-size: 15px;
+  color: rgb(173, 171, 171);
+}
+
+.ContainerCardPc:hover {
+  border: 0.5px solid rgb(116, 219, 90);
+}
+
+.ContainerMayorCards {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ContainerMayorCards a {
+  text-decoration: none;
+  color: black;
+}
+.ContainerMayorCards .SinStock {
+  font-weight: 800;
+  color: #fd7474;
+  text-align: center;
+}
+
+.SectionCards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ContainerCrearPc {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 25px;
+}
+
+.BTN {
+  border: 1px solid #3483fa;
+  border-radius: 5px;
+  padding: 8px;
+  height: 42px;
+  color: #fff;
+  font-size: 18px;
+  font-family: montserrat;
+  background-color: #3483fa;
+  transition: opacity 0.35s ease;
+  text-align: center;
+}
+
+.botonCarrito {
+  background-color: #3483fa;
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3483fa;
+}
+
+.ContenedroDeImagen {
+  border: 1px solid #96c817;
+  border-radius: 5px;
+  padding: 5px 7px;
+  position: relative;
+}
+.ContenedroDeImagen span {
+  position: absolute;
+  top: 0;
+  right: 1px;
+  color: #a7d82a;
+}
+
+@media (max-width: 500px) {
+  .ContainerMayorCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .ContainerMayorCards .SectionCards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  .SectionArmarPc {
+    display: block;
+    align-items: center;
+  }
+  .SectionArmarPc .ContenidoSeleccionDeComponentes {
+    display: none;
+  }
+  .ContainerArmaPc {
+    display: flex;
+    flex-direction: column;
+  }
+  .Boton_Precio_Total {
+    border-radius: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+  }
+  .Boton_Precio_Total h5 {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=arma-tu-pc.component.css.map */

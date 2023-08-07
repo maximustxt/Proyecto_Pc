@@ -1,0 +1,126 @@
+<!---------------------Nav Bar----------------------->
+<app-nav-bar></app-nav-bar>
+<!------------------------------------------------------------->
+<section class="SectionCarrito">
+  <div class="DivCarrito">
+    <i class="fas fa-shopping-cart"></i>
+    <h3>CARRITO DE COMPRAS</h3>
+  </div>
+  <ng-container *ngIf="Carrito.length">
+    <!------------------Finalizar Compra---------------------->
+    <div class="SectionPagarCupon">
+      <div class="ConatinerPagarCupon">
+        <p>Tu compra</p>
+        <div class="ContainerTotal">
+          <p>Total</p>
+          <span class="SpanPrecioTotal">{{ PrecioTotal | pipePrecio }}</span>
+        </div>
+        <hr />
+        <!-- <button (click)="FinalizarCompra(Compu._id, Compu.Contador)"> -->
+        <button (click)="FinalizarCompra()">Finalizar la compra</button>
+        <button
+          class="EliminarCarritoCompleto"
+          (click)="EliminarTodoElCarrito()"
+        >
+          Eliminar Todo El Carrito
+        </button>
+      </div>
+    </div>
+    <!---------------------------------------->
+    <h5>Descripción de tu pedido:</h5>
+    <section class="SectionCards">
+      <ng-container *ngFor="let Compu of Carrito">
+        <!-------------------------------------Armado de Pc--------------------------------->
+        <ng-container *ngIf="Compu.Identificador === 'Armado De Pc'">
+          <!----------------------------------------------------------->
+          <div class="ContainerCardPc">
+            <section class="SectionBotonEliminar">
+              <button (click)="EliminarCarrito(Compu._id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </section>
+            <section class="ContainerImg">
+              <img [src]="Compu.Imagen" />
+            </section>
+            <div class="ContainerInformacionPrecioName">
+              <!------------------Nombre-------------------->
+              <ng-container *ngIf="Compu.name">
+                <div class="ContainerNombre">
+                  <p class="PName">{{ Compu.name }}</p>
+                </div>
+              </ng-container>
+              <!------------------------------------------------------->
+            </div>
+            <section class="SectionPrecioSubtotal">
+              <h3>{{ Compu.Precio | pipePrecio }}</h3>
+            </section>
+          </div>
+          <!----------------------------------------------------------->
+        </ng-container>
+
+        <!---------------------------------------PRODUCTOS NORMALES------------------------------------------->
+        <ng-container *ngIf="Compu.Identificador !== 'Armado De Pc'">
+          <div class="ContainerCardPc">
+            <section class="SectionBotonEliminar">
+              <button (click)="EliminarCarrito(Compu._id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </section>
+            <a [routerLink]="['../Detail', Compu._id]">
+              <section class="ContainerImg">
+                <img [src]="Compu.Imagen" />
+              </section>
+            </a>
+            <div class="ContainerInformacionPrecioName">
+              <!------------------Nombre-------------------->
+              <ng-container *ngIf="Compu.name">
+                <div class="ContainerNombre">
+                  <p>{{ Compu.name }}</p>
+                </div>
+              </ng-container>
+              <!------------------------------------------------------->
+            </div>
+            <section class="SectionPrecio">
+              <h3 class="PrecioBase">
+                {{ Compu.PrecioUnitario | pipePrecio }}
+              </h3>
+            </section>
+            <!---------------------ContadorCantidad--------------------------->
+            <section class="SectionContador">
+              <div class="ContainerBotonCompraYContador">
+                <div class="CantidadDeStock">
+                  <ng-container *ngIf="Compu.Contador">
+                    <div class="DivP">
+                      <p>{{ Compu.Contador }}</p>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="ContainerFlechasContador">
+                <a (click)="FuncionIncrementaContador(Compu._id)">
+                  <i class="fas fa-arrow-up"></i>
+                </a>
+                <a (click)="FuncionDecrementaContador(Compu._id)">
+                  <i class="fas fa-arrow-down"></i>
+                </a>
+              </div>
+              <!----------------------------Sub Total---------------------------------->
+              <section class="SectionPrecioSubtotal">
+                <h3>{{ Compu.Precio | pipePrecio }}</h3>
+              </section>
+            </section>
+          </div>
+        </ng-container>
+      </ng-container>
+      <!---------------------------------Aca va el boton de pagar y canjear cupon------------------------------------->
+    </section>
+  </ng-container>
+  <ng-container *ngIf="!Carrito.length">
+    <div class="ContainerCarritoVacio">
+      <p>El carrito esta vacio</p>
+      <p>Puedes agregar productos desde el botón añadir en el catálogo.</p>
+      <button routerLink="/Home">Continuar</button>
+    </div>
+  </ng-container>
+</section>
+<app-footer></app-footer>

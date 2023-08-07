@@ -1,0 +1,36 @@
+<!---------Nav Bar---------->
+<app-nav-bar></app-nav-bar>
+<img
+  src="https://lezamapc.com.ar/modules/ps_imageslider/images/30bb5f9ebe7ddef0aca5ddebb61c721ed4daa520_intel-13th.png"
+  width="100%"
+  style="margin-top: 100px"
+/>
+<ng-container *ngIf="IntelCore13th.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <!-------------------Cada Procesador-------------------->
+      <ng-container *ngFor="let procesador of IntelCore13th">
+        <a [routerLink]="['../Detail', procesador._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img [src]="procesador.Imagen" />
+            </section>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ procesador.Precio | pipePrecio }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ procesador.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <!--------Armado De Pc------->
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

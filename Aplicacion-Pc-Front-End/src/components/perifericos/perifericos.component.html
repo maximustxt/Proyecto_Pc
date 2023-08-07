@@ -1,0 +1,81 @@
+<!------Nav Bar------->
+<app-nav-bar></app-nav-bar>
+<div class="Container">
+  <img
+    src="https://imagenes.compragamer.com/bannerSubcategoria/subcategoria_default.jpg"
+  />
+  <p>PERIFERICOS</p>
+</div>
+<!--------------------------Filtros --------------------------->
+<div class="SelectFiltro">
+  <!--Marcas-->
+  <select (change)="FiltroMarcaPeriferico($event)">
+    <option hidden>Seleccionar Marca</option>
+    <option *ngFor="let Marca of ArrayMarcasPerifericos" [value]="Marca">
+      {{ Marca | pipeNombreFiltros }}
+    </option>
+    <option value="All">Todas Las Marcas</option>
+  </select>
+  <!--Tipos-->
+  <select (change)="FiltroDeTipoPeriferico($event)">
+    <option hidden>Tipo de Periferico</option>
+    <option *ngFor="let Tipo of ArrayTiposPerifericos" [value]="Tipo">
+      {{ Tipo | pipeNombreFiltros }}
+    </option>
+    <option value="All">Todos Los Perifericos</option>
+  </select>
+  <!--Tipo De Conexion-->
+  <select (change)="FiltroTipoDeConexionPeriferico($event)">
+    <option hidden>Seleccionar Tipo De Conexion</option>
+    <option
+      *ngFor="let Tipo_De_Conexion of ArrayTipoDeConexion"
+      [value]="Tipo_De_Conexion"
+    >
+      {{ Tipo_De_Conexion | pipeNombreFiltros }}
+    </option>
+    <option value="All">Todos Los Perifericos</option>
+  </select>
+  <!----------------------------ORDENAMIENTOS------------------------------->
+  <select (change)="FuncionOrdenamientoPrecio_Destacado($event)">
+    <option hidden>Ordenamientos</option>
+    <option value="Mayor Precio">Mayor Precio</option>
+    <option value="Menor Precio">Menor Precio</option>
+    <option value="Destacado">Destacado</option>
+    <option value="All">Todo los Productos</option>
+  </select>
+</div>
+<!------------------------------------------------------------------------>
+<ng-container *ngIf="ArrayPerifericos.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <ng-container *ngFor="let Compu of ArrayPerifericos">
+        <a [routerLink]="['../Detail', Compu._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img
+                [ngStyle]="{ opacity: calcularOpacidad(Compu.Stock) }"
+                [src]="Compu.Imagen"
+              />
+            </section>
+            <p class="SinStock" *ngIf="!Compu.Stock">
+              {{ "Sin Stock" | uppercase }}
+            </p>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ Compu.Precio | pipePrecio }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ Compu.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <!--------Armado De Pc-------->
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

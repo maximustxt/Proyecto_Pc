@@ -1,0 +1,36 @@
+<!----------Nav Bar----------->
+<app-nav-bar></app-nav-bar>
+<div class="Container">
+  <img
+    src="https://imagedelivery.net/coazEmlpsaEeLgEQn76AbA/d34ec34f-7f2c-4964-084b-b81a449fbd00/public"
+  />
+</div>
+<ng-container *ngIf="ArrayComponentes.length">
+  <div class="ContainerMayorCards">
+    <div class="SectionCards">
+      <!-------------Cada Computadora-------------->
+      <ng-container *ngFor="let Compu of ArrayComponentes">
+        <a [routerLink]="['../Detail', Compu._id]">
+          <div class="ContainerCardPc">
+            <section class="ContainerImg">
+              <img [src]="Compu.Imagen" />
+            </section>
+            <div class="ContainerInformacionPrecioName">
+              <h3>{{ Compu.Precio | pipePrecio }}</h3>
+              <div class="ContainerNombre">
+                <p>{{ Compu.name }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <!-----------Armado De Pc------------>
+  <div class="ContainerCrearPc">
+    <a routerLink="/ArmarPc">
+      <img src="https://www.venex.com.ar/fil/banners/armadorpclargo.jpg" />
+    </a>
+  </div>
+  <app-footer></app-footer>
+</ng-container>

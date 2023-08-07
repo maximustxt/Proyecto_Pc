@@ -1,0 +1,89 @@
+.ContainerCardPc {
+  width: 300px;
+  height: 465px;
+  margin: 15px;
+  border: 0.5px solid #cdcdcd;
+  border-radius: 10px;
+}
+.ContainerCardPc .ContainerNombre {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ContainerCardPc .ContainerInformacionPrecioName {
+  padding: 0px 25px;
+}
+.ContainerCardPc img {
+  width: 100%;
+  height: 300px;
+}
+.ContainerCardPc p {
+  font-size: 15px;
+  color: rgb(173, 171, 171);
+}
+
+.ContainerCardPc:hover {
+  border: 0.5px solid rgb(116, 219, 90);
+}
+
+.ContainerMayorCards {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+.ContainerMayorCards a {
+  text-decoration: none;
+  color: black;
+}
+.ContainerMayorCards .SinStock {
+  font-weight: 800;
+  color: #fd7474;
+  text-align: center;
+}
+
+.SectionCards {
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ContainerCrearPc {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.Container {
+  margin-top: 100px;
+  position: relative;
+}
+.Container img {
+  height: 100%;
+  width: 100%;
+}
+.Container p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 10px;
+}
+
+@media (max-width: 1200px) {
+  .ContainerCrearPc {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    height: 150px;
+    background-color: red;
+  }
+  .ContainerCrearPc img {
+    max-width: 100%;
+    height: 150px;
+  }
+}/*# sourceMappingURL=notebooks-aero.component.css.map */

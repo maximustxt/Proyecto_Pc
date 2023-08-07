@@ -1,0 +1,311 @@
+.ContainerImagenes {
+  border: 0.5px solid #cdcdcd;
+  width: fit-content;
+  height: fit-content;
+  margin: 5px;
+  img {
+    width: 70px;
+  }
+}
+
+.ContainerImagenesDeDetail {
+  margin-right: 150px;
+  margin-bottom: 0px;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  height: 650px;
+}
+
+.ContainerMayorCards {
+  margin-top: 130px;
+  font-family: "Montserrat";
+  display: flex;
+  justify-content: center;
+  .SectionCards {
+    width: 90%;
+  }
+  .ContainerNombre {
+    margin-bottom: 50px;
+    .p {
+      font-size: 18px;
+      line-height: 18px;
+      color: #37373f;
+      font-weight: unset;
+      margin-top: 0;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+  }
+  h3 {
+    font-family: "Montserrat Regular";
+    font-size: 30px;
+    line-height: 1.42857143;
+    background-color: #ffffff;
+    color: #333 !important;
+    padding-top: 0px;
+    font-weight: 550;
+  }
+}
+.BotonCompra {
+  border: none;
+  background-color: #3483fa;
+  border-color: #3483fa;
+  width: 250px;
+  height: fit-content;
+  font-size: 20px;
+  padding: 20px 10px;
+  border-radius: 5px;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.ContainerBotonCompraYContador {
+  display: flex;
+}
+
+.CantidadDeStock {
+  font-size: 20px;
+  background-color: #dddada;
+  border-radius: 5px;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 15px;
+  .DivP {
+    margin-right: 10px;
+    p {
+      margin-top: 18px;
+      font-size: 25px;
+    }
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    a {
+      margin: 5px 0 0 1px;
+      border: none;
+      height: fit-content;
+      background-color: transparent;
+      font-size: 20px;
+      cursor: pointer;
+      i {
+        font-size: 15px;
+        color: #3483fa;
+      }
+    }
+  }
+}
+
+.ContaienrCompra {
+  width: 400px;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat";
+  border-left: 5px solid #96c817;
+
+  h3 {
+    margin: 30px;
+  }
+}
+
+.ContainerCaracteristicas {
+  display: flex;
+  p {
+    margin: 30px;
+  }
+}
+
+.botonFavorito {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.ContainerCrearPc {
+  display: flex;
+  justify-content: center;
+}
+
+//------------------------------------------Contador:
+.ContainerFlechasContador {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  a {
+    margin: 5px 0 0 1px;
+    border: none;
+    height: fit-content;
+    background-color: transparent;
+    font-size: 12px;
+    cursor: pointer;
+    i {
+      font-size: 12px;
+      color: #3483fa;
+    }
+  }
+}
+
+.SectionContador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DivFactorForma {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  img {
+    width: 35px;
+  }
+}
+
+.BtnListado {
+  color: #706f6f;
+  margin-right: 35px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  i {
+    color: #96c817;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+}
+
+.SectionCaracteristicas {
+  display: flex;
+  .DivFactorForma {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    height: fit-content;
+    width: fit-content;
+    p {
+      margin-left: 30px;
+    }
+  }
+}
+
+.ContaienrCaracteristicas {
+  display: flex;
+  div {
+    display: flex;
+    margin: 50px;
+    i {
+      margin-right: 10px;
+    }
+    p {
+      margin-left: 20px;
+    }
+    img {
+      width: 35px;
+    }
+  }
+}
+
+.ContainerDivImg {
+  margin-right: 200px;
+  width: fit-content;
+  height: fit-content;
+  img {
+    width: 400px;
+    height: 450px;
+  }
+}
+
+.ClassTrue {
+  border: 1px solid #96c817;
+}
+
+.ClassFalse {
+  img {
+    opacity: 0.5;
+  }
+}
+
+.CaracteristicasMonitores {
+  display: flex;
+  align-items: center;
+  span {
+    margin-left: 10px;
+    font-weight: 800;
+  }
+}
+
+@media (max-width: 1200px) {
+  .SectionCards {
+    width: 100%;
+  }
+  .ContainerCrearPc {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    height: 150px;
+    background-color: red;
+    img {
+      width: 100%;
+      height: 150px;
+    }
+  }
+  .ContainerCaracteristicas {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 500px) {
+  .ContainerImagenesDeDetail {
+    padding: 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 50px;
+  }
+  .section {
+    display: block;
+    height: fit-content;
+    .ContainerDivImg {
+      width: 100%;
+      height: 300px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .BotonCompra {
+    width: 150px;
+  }
+  .SectionCards {
+    width: 100%;
+  }
+  .ContainerNombre {
+    margin-top: 20px;
+    p {
+      font-weight: 500;
+    }
+  }
+  .ContaienrCompra {
+    text-align: center;
+    width: 100%;
+    p {
+      font-size: 15px;
+    }
+  }
+}

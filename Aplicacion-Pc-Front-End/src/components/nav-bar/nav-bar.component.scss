@@ -1,0 +1,277 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.NavContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #37373f;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  input {
+    width: 30%;
+    height: 40%;
+    border-radius: 5px;
+  }
+
+  a {
+    color: white;
+    cursor: pointer;
+    img {
+      width: 250px;
+    }
+    text-decoration: none;
+  }
+}
+
+.carrito-icon {
+  position: relative;
+}
+
+.carrito-icon {
+  div {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -8px; /* Ajusta esta propiedad para alinear verticalmente el contador con el ícono */
+    right: -11px; /* Ajusta esta propiedad para alinear horizontalmente el contador con el ícono */
+    background-color: red; /* Personaliza el color de fondo del contador */
+    text-align: center;
+    border-radius: 50%; /* Da forma circular al contador */
+    padding: 4px 4px; /* Ajusta el espacio interno del contador */
+    font-size: 11px;
+    span {
+      color: white; /* Personaliza el color del texto del contador */
+      font-size: 11px;
+    }
+  }
+}
+/*************************************************************************************************************/
+.InicioSesion {
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  i {
+    margin-right: 5px;
+  }
+}
+
+.InicioSesion:hover {
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  i {
+    margin-right: 5px;
+  }
+}
+
+nav {
+  background-color: #2d2d33;
+  padding: 20px 20px;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  div {
+    //div que contiene los links.
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+  }
+  a {
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+  }
+  /* Estilo para el icono */
+  .icono-martix {
+    font-family: "Arial", sans-serif; /* Fuente del texto */
+    letter-spacing: 5px; /* Separación entre las letras */
+    font-weight: bold; /* Grosor del texto */
+    color: #fff; /* Color del texto (puedes cambiarlo) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    font-size: 30px;
+    width: fit-content;
+    span {
+      color: #96c817;
+    }
+  }
+}
+.ContainerSpan {
+  display: none;
+}
+
+.Fav-Carrito {
+  display: flex;
+  width: fit-content;
+}
+.LiSelect:hover {
+  a:hover {
+    width: fit-content;
+    background-color: rgb(218, 217, 217);
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 920px) {
+  .ContainerPerfilUser {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+    img {
+      height: 50px;
+      border-radius: 50%;
+    }
+    a {
+      cursor: pointer;
+      position: absolute;
+      right: -10px;
+      bottom: -20px;
+      color: #fff;
+      font-size: 15px;
+    }
+  }
+
+  //--------------------------------------------//
+
+  .escondida {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 400px;
+    flex-direction: column;
+    top: 0;
+    left: -1000px;
+    display: none;
+    z-index: 100;
+    transition: all 0.3s ease;
+    .Fav-Carrito {
+      display: none;
+    }
+  }
+
+  .salida {
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    width: 100%;
+    height: 400px;
+    z-index: 1000; // lo que hace es que las imagenes o datos no sobrepasen este div...
+    background-color: #2d2d33;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s linear;
+    .Fav-Carrito {
+      display: none;
+    }
+    .icono-martix {
+      display: none;
+    }
+    a {
+      font-size: 15px;
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+
+  .ContainerSpan {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; // lo que hace es que las imagenes o datos no sobrepasen este div...
+    width: 100%;
+    padding: 30px 30px;
+    background-color: #2d2d33;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    .IconoHamburgesa {
+      font-size: 25px;
+      width: fit-content;
+      color: #96c817;
+      margin-right: 30px;
+    }
+    .carrito-icon {
+      font-size: 20px;
+      width: fit-content;
+      color: #fff;
+    }
+    .Favorito-icon {
+      font-size: 20px;
+      width: fit-content;
+      color: #fff;
+    }
+    a {
+      text-decoration: none;
+    }
+    .icono-martix {
+      font-size: 25px;
+    }
+  }
+  .InicioSesion {
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+.ContaienrUser {
+  font-family: "Monserat";
+  position: relative;
+  .PanelPerfil {
+    position: absolute;
+    bottom: -160px;
+    background-color: #d2d2d2;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 10px;
+    z-index: 1000000000000000000;
+    -webkit-box-shadow: 10px 10px 113px -44px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 10px 10px 113px -44px rgba(0, 0, 0, 0.57);
+    box-shadow: 10px 10px 113px -44px rgba(0, 0, 0, 0.57);
+
+    a {
+      cursor: pointer;
+    }
+    a:hover {
+      color: #37373f;
+    }
+  }
+  .ContainerPerfilUser {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+    img {
+      height: 50px;
+      border-radius: 50%;
+    }
+    a {
+      cursor: pointer;
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      color: #fff;
+      font-size: 15px;
+    }
+  }
+}
+
+.BotonIcono {
+  background-color: transparent;
+  border: none;
+}
