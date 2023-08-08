@@ -12,6 +12,7 @@ import { Componentes } from 'src/Interfaces/Componentes/Componentes';
 import { Perifericos } from 'src/Interfaces/Perifericos/Perifericos';
 import Silla_Butaca from 'src/Interfaces/Sillas_Butacas/Sillas_Butacas';
 import Monitor from 'src/Interfaces/Monitores/Monitores';
+import { InfoFav } from 'src/Interfaces/Favoritos/Favoritos';
 
 @Component({
   selector: 'app-detail',
@@ -19,6 +20,7 @@ import Monitor from 'src/Interfaces/Monitores/Monitores';
   styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent {
+  ArrayCarritoVerificacion: InfoFav[] = [];
   ComputadoraId!: string;
   ComputadoraDetail!: Computadoras;
   ComponenteDetail!: Componentes;
@@ -44,6 +46,13 @@ export class DetailComponent {
   ) {}
 
   //-----------------------------------------------------ALERTS:
+
+  AlertProductoYaAgregado(): void {
+    this.ngxToastService.onWarning(
+      'Producto ya agregado en el carrito',
+      'Verifica el carrito'
+    );
+  }
 
   addDanger(): void {
     this.ngxToastService.onDanger(
@@ -140,6 +149,17 @@ export class DetailComponent {
   FuncionComprar(id: string) {
     // yo aca primero lo agrego al carrito y luego le mando el put del contador que va a recibir el this.ContadorCompra:
 
+    this.EliminarCarrito(id);
+
+    // this.Servicio.GetCarritoComputadoras(this.DatoUsuario._id).subscribe(
+    //   (date) => {
+    //     this.ArrayCarritoVerificacion = date;
+    //   }
+    // );
+
+    // if (this.ArrayCarritoVerificacion.find((e) => e._id === e._id)) {
+    //   this.AlertProductoYaAgregado();
+    // } else {
     if (!this.DatoUsuario) {
       this.addWarningCompra();
     }
@@ -290,5 +310,11 @@ export class DetailComponent {
   //-------------------------------------Cambiar Imagen :
   CambiarImagen(img: string) {
     this.ImagenesDetailCarruselClick = img;
+  }
+
+  EliminarCarrito(id: string) {
+    this.Servicio.DeleteCarritoComputadoras(id, this.DatoUsuario._id).subscribe(
+      (date) => {}
+    );
   }
 }

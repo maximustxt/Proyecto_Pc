@@ -25,7 +25,7 @@ const GetProductosINTELControllers = async () => {
       ),
 
       DiscoDuroIntel: ArrayComponentesIntel.filter(
-        (e) => e.Tipo === "Disco Duro"
+        (e) => e.Tipo === "Disco Duro" || e.Tipo === "Disco SSD"
       ),
 
       MemoriasRamIntel: ArrayComponentesIntel.filter(

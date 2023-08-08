@@ -13,18 +13,24 @@ const GetProductosAMDControllers = async () => {
 
     return {
       ProcesadorAmd: ArrayComponentesAmd.filter(
-        (e) => e.Tipo === "Procesador" && e.TipoDeChip === "Amd"
+        (e) =>
+          e.Tipo === "Procesador" &&
+          (e.TipoDeChip === "Amd" || e.TipoDeChip === "AMD")
       ),
 
       PlacaMadreAmd: ArrayComponentesAmd.filter(
-        (e) => e.Tipo === "Placa Madre" && e.TipoDeChip === "Amd"
+        (e) =>
+          e.Tipo === "Placa Madre" &&
+          (e.TipoDeChip === "Amd" || e.TipoDeChip === "AMD")
       ),
 
       PlacasDeVideoAmd: ArrayComponentesAmd.filter(
         (e) => e.Tipo === "Placa De Video"
       ),
 
-      DiscoDuroAmd: ArrayComponentesAmd.filter((e) => e.Tipo === "Disco Duro"),
+      DiscoDuroAmd: ArrayComponentesAmd.filter(
+        (e) => e.Tipo === "Disco Duro" || e.Tipo === "Disco SSD"
+      ),
 
       MemoriasRamAmd: ArrayComponentesAmd.filter(
         (e) => e.Tipo === "Memoria Ram"

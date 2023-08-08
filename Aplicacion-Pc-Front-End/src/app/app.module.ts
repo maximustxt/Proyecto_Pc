@@ -46,6 +46,7 @@ import { ProductosJBLComponent } from '../components/productos-jbl/productos-jbl
 import { PipeNombreFiltrosPipe } from '../Pipes/pipe-nombre-filtros.pipe';
 import { MonitoresComponent } from '../components/monitores/monitores.component';
 import { InicioSesionComponent } from '../components/inicio-sesion/inicio-sesion.component';
+import { InfoArmarPcComponent } from '../components/info-armar-pc/info-armar-pc.component';
 
 const gapiClientConfig: NgGapiClientConfig = {
   client_id:
@@ -87,6 +88,7 @@ const gapiClientConfig: NgGapiClientConfig = {
     PipeNombreFiltrosPipe,
     MonitoresComponent,
     InicioSesionComponent,
+    InfoArmarPcComponent,
   ],
   imports: [
     BrowserModule,

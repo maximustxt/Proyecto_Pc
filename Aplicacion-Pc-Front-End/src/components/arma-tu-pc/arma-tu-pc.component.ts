@@ -23,6 +23,7 @@ export class ArmaTuPcComponent {
     private ngxToastService: NgxToastService
   ) {}
 
+  name!: string;
   BooleanoBotones: boolean = true;
   Usuario!: Usuario;
   ImagenProcesador!: string | undefined;
@@ -286,6 +287,8 @@ export class ArmaTuPcComponent {
     );
 
     this.MonitoresIntel = [];
+
+    this.name = 'Vacio';
     //- Monitores:
     localStorage.removeItem('MonitoresIntel');
   }
@@ -310,6 +313,9 @@ export class ArmaTuPcComponent {
     );
 
     this.PerifericosIntel = [];
+
+    this.name = 'Monitor';
+
     //- Perifericos:
     localStorage.removeItem('PerifericosIntel');
   }
@@ -333,6 +339,9 @@ export class ArmaTuPcComponent {
     );
 
     this.GabinetesIntel = [];
+
+    this.name = 'Perifericos';
+
     //- Gabinetes:
     localStorage.removeItem('GabinetesIntel');
   }
@@ -357,6 +366,8 @@ export class ArmaTuPcComponent {
     );
 
     this.FuentesDePoderIntel = [];
+
+    this.name = 'Gabinete';
     //- Fuentes De Poder:
     localStorage.removeItem('FuentesDePoderIntel');
   }
@@ -383,6 +394,8 @@ export class ArmaTuPcComponent {
     );
 
     this.Discos_Rigidos_Intel = [];
+
+    this.name = 'Fuente De Poder';
     //- Disco Rigido:
     localStorage.removeItem('Discos_Rigidos_Intel');
   }
@@ -409,6 +422,9 @@ export class ArmaTuPcComponent {
     );
 
     this.Placas_De_VideoIntel = [];
+
+    this.name = 'Almacenamiento';
+
     //- Placa De Video:
     localStorage.removeItem('Placas_De_VideoIntel');
   }
@@ -432,6 +448,8 @@ export class ArmaTuPcComponent {
     );
 
     this.Memorias_RamIntel = [];
+
+    this.name = 'Placa De Video';
     //- Memoria Ram:
     localStorage.removeItem('Memorias_RamIntel');
   }
@@ -457,6 +475,9 @@ export class ArmaTuPcComponent {
     );
 
     this.PlacasMadreIntel = [];
+
+    this.name = 'Memoria Ram';
+
     //- Placas Madre:
     localStorage.removeItem('PlacasMadreIntel');
   }
@@ -482,6 +503,9 @@ export class ArmaTuPcComponent {
     )?.Imagen;
 
     this.ProcesadoresIntel = [];
+
+    this.name = 'Placa Madre';
+
     //- Procesador:
     localStorage.removeItem('ProcesadoresIntel');
   }
@@ -492,16 +516,14 @@ export class ArmaTuPcComponent {
     // aca voy abuscar todo los Componentes que sean de Intel.
     // lo voy a identificar con esta forma  "TipoDeChip": "Intel".
 
+    this.name = 'Procesador';
+
     if (!this.Usuario) {
       this.addWarningArmar_Pc();
     } else {
       // Guardar el valor en localStorage
 
       this.BooleanoBotones = false;
-      // localStorage.setItem(
-      //   'BooleanoBotones',
-      //   JSON.stringify(this.BooleanoBotones)
-      // );
 
       //- VACIAMOS TODO LO DE AMD:
       this.PlacasMadreAmd = [];
@@ -534,12 +556,6 @@ export class ArmaTuPcComponent {
       localStorage.removeItem('PerifericosAmd');
       //- Monitores:
       localStorage.removeItem('MonitoresAmd');
-
-      //- ArmadoPc:
-      // this.Servicios.PrecioArmadoPc().subscribe((date) => {
-      //   console.log(this.ArmadoPcIntel);
-      //   this.ArmadoPcIntel = date;
-      // });
 
       this.Servicios.DatosProductosINTEL().subscribe((date) => {
         //- Procesador:
@@ -642,6 +658,9 @@ export class ArmaTuPcComponent {
     this.ImagenMonitor = this.MonitoresAmd.find((e) => e._id === id)?.Imagen;
 
     this.MonitoresAmd = [];
+
+    this.name = 'Vacio';
+
     //- Monitores:
     localStorage.removeItem('MonitoresAmd');
   }
@@ -661,6 +680,8 @@ export class ArmaTuPcComponent {
     )?.Imagen;
 
     this.PerifericosAmd = [];
+
+    this.name = 'Monitor';
     //- Perifericos:
     localStorage.removeItem('PerifericosAmd');
   }
@@ -678,6 +699,8 @@ export class ArmaTuPcComponent {
     this.ImagenGabinete = this.GabinetesAmd.find((e) => e._id === id)?.Imagen;
 
     this.GabinetesAmd = [];
+
+    this.name = 'Perifericos';
     //- Gabinetes:
     localStorage.removeItem('GabinetesAmd');
   }
@@ -697,6 +720,9 @@ export class ArmaTuPcComponent {
     )?.Imagen;
 
     this.FuentesDePoderAmd = [];
+
+    this.name = 'Gabinete';
+
     //- Fuentes De Poder:
     localStorage.removeItem('FuentesDePoderAmd');
   }
@@ -716,6 +742,9 @@ export class ArmaTuPcComponent {
     )?.Imagen;
 
     this.Discos_Rigidos_Amd = [];
+
+    this.name = 'Fuente De Poder';
+
     //- Disco Rigido:
     localStorage.removeItem('Discos_Rigidos_Amd');
   }
@@ -736,6 +765,9 @@ export class ArmaTuPcComponent {
     )?.Imagen;
 
     this.Placas_De_VideoAmd = [];
+
+    this.name = 'Almacenamiento';
+
     //- Placa De Video:
     localStorage.removeItem('Placas_De_VideoIntel');
   }
@@ -753,6 +785,9 @@ export class ArmaTuPcComponent {
     this.ImagenRam = this.Memorias_RamAmd.find((e) => e._id === id)?.Imagen;
 
     this.Memorias_RamAmd = [];
+
+    this.name = 'Placa De Video';
+
     //- Memoria Ram:
     localStorage.removeItem('Memorias_RamAmd');
   }
@@ -772,6 +807,9 @@ export class ArmaTuPcComponent {
     )?.Imagen;
 
     this.PlacasMadreAmd = [];
+
+    this.name = 'Memoria Ram';
+
     //- Placas Madre:
     localStorage.removeItem('PlacasMadreAmd');
   }
@@ -792,6 +830,9 @@ export class ArmaTuPcComponent {
     )?.Imagen;
 
     this.ProcesadoresAmd = [];
+
+    this.name = 'Placa Madre';
+
     //- Procesador:
     localStorage.removeItem('ProcesadoresAmd');
   }
@@ -800,6 +841,8 @@ export class ArmaTuPcComponent {
   FuncionSeleccionAmd() {
     // aca voy abuscar todo los Componentes que sean de amd.
     // lo voy a identificar con esta forma  "TipoDeChip": "Amd" ==> solo las placa madre , procesadores.
+
+    this.name = 'Procesador';
 
     if (!this.Usuario) {
       this.addWarningArmar_Pc();

@@ -13,8 +13,18 @@
         <a [routerLink]="['../Detail', placa._id]">
           <div class="ContainerCardPc">
             <section class="ContainerImg">
-              <img [src]="placa.Imagen" />
+              <img
+                [ngStyle]="{ opacity: calcularOpacidad(placa.Stock) }"
+                [src]="placa.Imagen"
+              />
             </section>
+            <p
+              style="font-weight: 800; color: #fd7474; text-align: center"
+              class="SinStock"
+              *ngIf="!placa.Stock"
+            >
+              {{ "Sin Stock" | uppercase }}
+            </p>
             <div class="ContainerInformacionPrecioName">
               <h3>{{ placa.Precio | pipePrecio }}</h3>
               <div class="ContainerNombre">

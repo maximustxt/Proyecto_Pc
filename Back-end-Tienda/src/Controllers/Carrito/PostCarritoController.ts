@@ -31,6 +31,7 @@ const PostCarritoController = async (carritoData: Carritos, idUser: string) => {
 
     return "Carrito Posteado";
   } catch (error: any) {
+    console.log(error.message);
     throw new Error("No se pudo postear el Carrito: " + error.message);
   }
 };

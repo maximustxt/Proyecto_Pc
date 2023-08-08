@@ -119,6 +119,19 @@ nav {
 }
 
 @media (max-width: 920px) {
+  /* Estilo para el icono */
+  .icono-martix {
+    font-family: "Arial", sans-serif; /* Fuente del texto */
+    letter-spacing: 5px; /* Separación entre las letras */
+    font-weight: bold; /* Grosor del texto */
+    color: #fff; /* Color del texto (puedes cambiarlo) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    font-size: 30px;
+    width: fit-content;
+    span {
+      color: #96c817;
+    }
+  }
   .ContainerPerfilUser {
     display: flex;
     flex-direction: column;

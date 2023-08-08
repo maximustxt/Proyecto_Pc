@@ -18,7 +18,9 @@ export class SillasButacasComponent {
   ngOnInit() {
     this.Servicio.GetSillas_Butacas().subscribe((date) => {
       this.ArraySilla_Butaca = date;
-      this.ArrayMarcasSillas_Butacas = date.map((e) => e.Marca);
+      this.ArrayMarcasSillas_Butacas = Array.from(
+        new Set(date.map((e) => e.Marca))
+      );
     });
   }
 

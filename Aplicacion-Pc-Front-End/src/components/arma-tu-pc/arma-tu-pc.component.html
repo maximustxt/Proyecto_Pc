@@ -5,6 +5,10 @@
     <button (click)="BotonReiniciar()">Reiniciar Configurador</button>
   </div>
 </div>
+<br />
+<br />
+<!-----HACER UN COMPONENTE------->
+<app-info-armar-pc [name]="name"></app-info-armar-pc>
 <section class="SectionArmarPc">
   <div class="ContenidoSeleccionDeComponentes">
     <!-----Div 1----->
@@ -192,6 +196,7 @@
             <div class="ContainerCardPc">
               <section class="ContainerImg">
                 <img
+                  name="Procesador"
                   [ngStyle]="{
                     opacity: calcularOpacidad(ProcesadorIntel.Stock)
                   }"

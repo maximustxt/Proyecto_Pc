@@ -26,4 +26,15 @@ export class GeforceRTX40Component {
       }
     });
   }
+
+  //- Opacidad:
+
+  calcularOpacidad(Stock: number): string {
+    // Definir la lógica para calcular la opacidad en base al stock
+    // Puedes ajustar la fórmula según tus necesidades
+
+    const opacidad = Stock === 0 ? 0.3 : 1; // Por ejemplo, opacidad 0.5 si hay stock, 1 si no hay stock
+
+    return opacidad.toString();
+  }
 }
